@@ -1,0 +1,12 @@
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\obj\Debug\ITI_Linkedin_Managers.csprojResolveAssemblyReference.cache
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\ITI_Linkedin_Managers.dll.config
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\ITI_Linkedin_Managers.dll
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\ITI_Linkedin_Managers.pdb
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\DAL.dll
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\EntityFramework.dll
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\EntityFramework.SqlServer.dll
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\DAL.pdb
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\EntityFramework.xml
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\bin\Debug\EntityFramework.SqlServer.xml
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\obj\Debug\ITI_Linkedin_Managers.dll
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Managers\obj\Debug\ITI_Linkedin_Managers.pdb
