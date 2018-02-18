@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagersEntry.cs" />
+    <Compile Include="Managers\Country.cs" />
     <Compile Include="Managers\EducationManger.cs" />
     <Compile Include="Managers\ExperienceManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
