@@ -13,9 +13,7 @@ namespace ITI_Linkedin_Managers
     {
        LinkedInEntities link=new LinkedInEntities();
         public bool Add(Education e)
-        {
-            
-           
+        {  
             //to return entity if added or null if failed 
             return link.Education_Insert(e.FK_School, e.Degree, e.FieldOfStudy, e.Grade, e.Activities, e.From_Year, e.To_Year, e.Description, e.FK_Member) > 0;
              

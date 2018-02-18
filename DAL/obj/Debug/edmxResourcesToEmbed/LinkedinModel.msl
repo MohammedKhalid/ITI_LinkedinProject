@@ -648,22 +648,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Education_GetByID" FunctionName="LinkedInModel.Store.Education_GetByID">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="LinkedInModel.Education_GetByID_Result">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="FK_School" ColumnName="FK_School" />
-          <ScalarProperty Name="Degree" ColumnName="Degree" />
-          <ScalarProperty Name="FieldOfStudy" ColumnName="FieldOfStudy" />
-          <ScalarProperty Name="Grade" ColumnName="Grade" />
-          <ScalarProperty Name="Activities" ColumnName="Activities" />
-          <ScalarProperty Name="From_Year" ColumnName="From_Year" />
-          <ScalarProperty Name="To_Year" ColumnName="To_Year" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="FK_Member" ColumnName="FK_Member" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Education_GetByID" FunctionName="LinkedInModel.Store.Education_GetByID" />
     <FunctionImportMapping FunctionImportName="Education_Insert" FunctionName="LinkedInModel.Store.Education_Insert" />
     <FunctionImportMapping FunctionImportName="Education_Update" FunctionName="LinkedInModel.Store.Education_Update" />
     <FunctionImportMapping FunctionImportName="Group_Delete" FunctionName="LinkedInModel.Store.Group_Delete" />

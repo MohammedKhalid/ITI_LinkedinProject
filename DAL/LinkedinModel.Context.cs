@@ -1477,13 +1477,22 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Education_GetAll_Result>("Education_GetAll");
         }
     
-        public virtual ObjectResult<Education_GetByID_Result> Education_GetByID(Nullable<int> iD)
+        public virtual ObjectResult<Education> Education_GetByID(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Education_GetByID_Result>("Education_GetByID", iDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Education>("Education_GetByID", iDParameter);
+        }
+    
+        public virtual ObjectResult<Education> Education_GetByID(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Education>("Education_GetByID", mergeOption, iDParameter);
         }
     
         public virtual int Education_Insert(Nullable<int> fK_School, string degree, string fieldOfStudy, string grade, string activities, Nullable<int> from_Year, Nullable<int> to_Year, string description, Nullable<System.Guid> fK_Member)

@@ -1547,7 +1547,7 @@
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Education_GetAll" ReturnType="Collection(LinkedInModel.Education_GetAll_Result)" />
-    <FunctionImport Name="Education_GetByID" ReturnType="Collection(LinkedInModel.Education_GetByID_Result)">
+    <FunctionImport Name="Education_GetByID" EntitySet="Educations" ReturnType="Collection(LinkedInModel.Education)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Education_Insert">
