@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers.Managers
 {
-    class CountryManager
+    public class CountryManager
     {
         LinkedInEntities link;
         public CountryManager(LinkedInEntities ctx)

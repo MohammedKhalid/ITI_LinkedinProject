@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmRegsister.aspx.cs" Inherits="ITI_Linkedin_Presenation.Forms.frmRegsister" %>
 
 <%@ Register Src="~/Controls/ctrl_Regsister.ascx" TagPrefix="uc1" TagName="ctrl_Regsister" %>
+<%@ Register Src="~/Controls/ctrl_Login.ascx" TagPrefix="uc1" TagName="ctrl_Login" %>
+
 
 
 <!DOCTYPE html>
@@ -14,6 +16,9 @@
     <div>
         <uc1:ctrl_Regsister runat="server" id="ctrl_Regsister" />
     </div>
+        <div>
+            <uc1:ctrl_Login runat="server" ID="ctrl_Login" />
+        </div>
     </form>
 </body>
 </html>

@@ -17,7 +17,9 @@ namespace LinkedinProj.userControls
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
-           
+            Membership.ValidateUser(Login1.UserName, Login1.Password);
+            if (Membership.ValidateUser(Login1.UserName, Login1.Password))
+                Response.Redirect("frmHead.aspx");
         }
     }
 }

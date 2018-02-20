@@ -32,7 +32,7 @@ namespace LinkedinProj.userControls
             Guid newUserId = (Guid)newuser.ProviderUserKey;
             LinkedInEntities ctx = new LinkedInEntities();
             ctx.Member_Insert(newUserId, ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtFirstName")).Text,
-                "", ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtLastName")).Text, ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Email")).Text, "", "",
+                "", ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtLastName")).Text, ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("UserName")).Text, "", "",
                 ((RadioButtonList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rdogender")).SelectedValue, "", "", null, DateTime.Now, 0, 1, "", 1, false);
             ctx.SaveChanges();
         }

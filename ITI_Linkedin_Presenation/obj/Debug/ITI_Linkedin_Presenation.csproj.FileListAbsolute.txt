@@ -12,3 +12,5 @@ M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\bin\EntityFramework.xml
 M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\bin\EntityFramework.SqlServer.xml
 M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\obj\Debug\ITI_Linkedin_Presenation.dll
 M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\obj\Debug\ITI_Linkedin_Presenation.pdb
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\bin\DAL.dll.config
+M:\ITI\Asp.NET\ITI_Linkedin\ITI_Linkedin_Presenation\bin\ITI_Linkedin_Managers.dll.config

@@ -11,7 +11,13 @@ namespace ITI_Linkedin_Managers
 {
     public class EducationManger
     {
+        
        LinkedInEntities link=new LinkedInEntities();
+        public EducationManger(LinkedInEntities ctx)
+        {
+            link = ctx
+                ;
+        }
         public bool Add(Education e)
         {  
             //to return entity if added or null if failed 

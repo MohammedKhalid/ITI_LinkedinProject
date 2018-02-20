@@ -47,11 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagersEntry.cs" />
-    <Compile Include="Managers\Country.cs" />
+    <Compile Include="Managers\CertificationManager.cs" />
+    <Compile Include="Managers\CommentManager.cs" />
+    <Compile Include="Managers\CountryManager.cs" />
     <Compile Include="Managers\EducationManger.cs" />
     <Compile Include="Managers\ExperienceManager.cs" />
+    <Compile Include="Managers\GroupManager.cs" />
+    <Compile Include="Managers\LikeManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
     <Compile Include="Managers\OrganizationManager.cs" />
+    <Compile Include="Managers\PostManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\SkillsManager.cs" />
   </ItemGroup>

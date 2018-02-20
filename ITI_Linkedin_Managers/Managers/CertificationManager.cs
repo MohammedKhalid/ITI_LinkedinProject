@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers.Managers
 {
-    class CertificationManager
+    public class CertificationManager
     {
         LinkedInEntities link;
         public CertificationManager(LinkedInEntities ctx)

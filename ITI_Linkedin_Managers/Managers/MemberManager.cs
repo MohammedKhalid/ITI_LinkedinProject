@@ -23,7 +23,7 @@ namespace ITI_Linkedin_Managers
 
         }
 
-        public bool Delete(int id)
+        public bool Delete(Guid id)
         {
 
             return link.Member_Delete(id) > 0;
@@ -35,7 +35,7 @@ namespace ITI_Linkedin_Managers
             return (IQueryable<Member>)link.Member_GetAll();
         }
 
-        public ObjectResult GetById(int id)
+        public ObjectResult GetById(Guid id)
         {
             return link.Member_GetByID(id);
         }

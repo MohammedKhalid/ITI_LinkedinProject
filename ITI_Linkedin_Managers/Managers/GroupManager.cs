@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers.Managers
 {
-    class GroupManager
+    public class GroupManager
     {
         LinkedInEntities link;
         public GroupManager(LinkedInEntities ctx)

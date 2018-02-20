@@ -37,7 +37,7 @@ namespace ITI_Linkedin_Managers
         {
             get
             {
-                return new sk(ctx);
+                return new SkillsManager(ctx);
             }
 
         }
@@ -46,6 +46,53 @@ namespace ITI_Linkedin_Managers
             get
             {
                 return new EducationManger(ctx);
+            }
+
+        }
+        public CountryManager countryManager
+        {
+            get
+            {
+                return new CountryManager(ctx);
+            }
+        }
+        public CertificationManager certifcateManger
+        {
+            get
+            {
+                return new CertificationManager(ctx);
+            }
+
+        }
+        public PostManager postManager
+        {
+            get
+            {
+                return new PostManager(ctx);
+            }
+
+        }
+        public LikeManager likeManger
+        {
+            get
+            {
+                return new LikeManager(ctx);
+            }
+
+        }
+        public CommentManager cmmntManger
+        {
+            get
+            {
+                return new CommentManager(ctx);
+            }
+
+        }
+        public GroupManager groupManger
+        {
+            get
+            {
+                return new GroupManager(ctx);
             }
 
         }

@@ -29,5 +29,14 @@ namespace ITI_Linkedin_Presenation.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LinkedinProj.userControls.ctrl_Regsister ctrl_Regsister;
+        
+        /// <summary>
+        /// ctrl_Login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::LinkedinProj.userControls.ctrl_Login ctrl_Login;
     }
 }

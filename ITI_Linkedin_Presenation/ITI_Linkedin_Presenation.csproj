@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\ctrl_editIntro.ascx" />
+    <Content Include="Controls\ctrl_headline.ascx" />
+    <Content Include="Controls\ctrl_PasswordRecovery.ascx" />
+    <Content Include="Controls\ctrl_ResetPassword.ascx" />
+    <Content Include="Css\myStyle.css" />
+    <Content Include="Forms\frmHead.aspx" />
+    <Content Include="Images\10405665_870538716317432_5299309338596982137_n.jpg" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Images\linkedincover.jpg" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -79,6 +89,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ctrl_editIntro.ascx.cs">
+      <DependentUpon>ctrl_editIntro.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_editIntro.ascx.designer.cs">
+      <DependentUpon>ctrl_editIntro.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctrl_headline.ascx.cs">
+      <DependentUpon>ctrl_headline.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_headline.ascx.designer.cs">
+      <DependentUpon>ctrl_headline.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctrl_Login.ascx.cs">
       <DependentUpon>ctrl_Login.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,12 +110,33 @@
     <Compile Include="Controls\ctrl_Login.ascx.designer.cs">
       <DependentUpon>ctrl_Login.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ctrl_PasswordRecovery.ascx.cs">
+      <DependentUpon>ctrl_PasswordRecovery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_PasswordRecovery.ascx.designer.cs">
+      <DependentUpon>ctrl_PasswordRecovery.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctrl_Regsister.ascx.cs">
       <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\ctrl_Regsister.ascx.designer.cs">
       <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctrl_ResetPassword.ascx.cs">
+      <DependentUpon>ctrl_ResetPassword.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_ResetPassword.ascx.designer.cs">
+      <DependentUpon>ctrl_ResetPassword.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHead.aspx.cs">
+      <DependentUpon>frmHead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHead.aspx.designer.cs">
+      <DependentUpon>frmHead.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmRegsister.aspx.cs">
       <DependentUpon>frmRegsister.aspx</DependentUpon>

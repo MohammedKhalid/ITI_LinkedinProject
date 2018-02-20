@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctrl_Regsister.ascx.cs" Inherits="LinkedinProj.userControls.ctrl_Regsister" %>
-<asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" CreateUserButtonText="Join now">
+<asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" CreateUserButtonText="Join now" RequireEmail="False">
     <WizardSteps>
         <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
             <ContentTemplate>
@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td >
-                            <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                            <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Email:</asp:Label>
                         </td>
                         </tr>
                     <tr>
@@ -62,39 +62,9 @@
                             <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
-                    <tr>
-                        <td >
-                            <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
-                        </td>
-                        </tr>
-                    <tr>
-                        <td>
-                            <asp:TextBox ID="Email" runat="server" Width="221px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label>
-                        </td>
-                        </tr>
-                    <tr>
-                        <td>
-                            <asp:TextBox ID="Question" runat="server" Width="221px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Security question is required." ToolTip="Security question is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
-                        </td>
-                        </tr>
-                    <tr>
-                        <td>
-                            <asp:TextBox ID="Answer" runat="server" Width="221px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required." ToolTip="Security answer is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
+                    
+                   
+                    
                     <tr>
                         <td>
                             <asp:RadioButtonList ID="rdogender" runat="server" RepeatDirection="Horizontal">
@@ -105,7 +75,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Label1" runat="server" AssociatedControlID="Answer">By clicking Join now, you agree to the LinkedIn User<br /> Agreement, Privacy Policy, and Cookie Policy.</asp:Label>
+                            <asp:Label ID="Label1" runat="server" >By clicking Join now, you agree to the LinkedIn User<br /> Agreement, Privacy Policy, and Cookie Policy.</asp:Label>
                        
                         </td>
                     </tr>
