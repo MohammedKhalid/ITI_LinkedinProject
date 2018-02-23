@@ -17,6 +17,6 @@ namespace DAL
         public string Name { get; set; }
         public Nullable<int> Number { get; set; }
         public Nullable<int> FK_Org { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
     }
 }

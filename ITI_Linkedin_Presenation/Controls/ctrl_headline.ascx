@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctrl_headline.ascx.cs" Inherits="ITI_Linkedin_Presenation.Controls.ctrl_headline" %>
-<link href="../Css/myStyle.css" rel="stylesheet" />
 
 
 <div role="main" class="core-rail">

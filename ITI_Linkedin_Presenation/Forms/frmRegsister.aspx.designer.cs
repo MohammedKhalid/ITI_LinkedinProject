@@ -13,13 +13,13 @@ namespace ITI_Linkedin_Presenation.Forms {
     public partial class frmRegsister {
         
         /// <summary>
-        /// form1 control.
+        /// ctrl_Login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::LinkedinProj.userControls.ctrl_Login ctrl_Login;
         
         /// <summary>
         /// ctrl_Regsister control.
@@ -29,14 +29,5 @@ namespace ITI_Linkedin_Presenation.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LinkedinProj.userControls.ctrl_Regsister ctrl_Regsister;
-        
-        /// <summary>
-        /// ctrl_Login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::LinkedinProj.userControls.ctrl_Login ctrl_Login;
     }
 }

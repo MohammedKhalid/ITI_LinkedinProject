@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers
 {
-    public class ManagersEntry
+    public static class ManagersEntry
     {
-        LinkedInEntities ctx = new LinkedInEntities();
-        public MemberManager MemberManager
+       static  LinkedInNewEntities ctx = new LinkedInNewEntities();
+        public static MemberManager MemberManager
         {
             get
             {
                 return new MemberManager(ctx);
             }
         }
-        public OrganizationManager organizationManger
+        public static OrganizationManager organizationManger
         {
             get
             {
                 return new OrganizationManager(ctx);
             }
         }
-        public ExperienceManager experienceManger
+        public static ExperienceManager experienceManger
         {
             get
             {
@@ -33,7 +33,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public SkillsManager skillManger
+        public static SkillsManager skillManger
         {
             get
             {
@@ -41,7 +41,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public EducationManger educationMAnger
+        public static EducationManger educationMAnger
         {
             get
             {
@@ -49,14 +49,14 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public CountryManager countryManager
+        public static CountryManager countryManager
         {
             get
             {
                 return new CountryManager(ctx);
             }
         }
-        public CertificationManager certifcateManger
+        public static CertificationManager certifcateManger
         {
             get
             {
@@ -64,7 +64,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public PostManager postManager
+        public static PostManager postManager
         {
             get
             {
@@ -72,7 +72,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public LikeManager likeManger
+        public static LikeManager likeManger
         {
             get
             {
@@ -80,7 +80,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public CommentManager cmmntManger
+        public static CommentManager cmmntManger
         {
             get
             {
@@ -88,7 +88,7 @@ namespace ITI_Linkedin_Managers
             }
 
         }
-        public GroupManager groupManger
+        public static GroupManager groupManger
         {
             get
             {

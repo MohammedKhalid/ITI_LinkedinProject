@@ -11,12 +11,16 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class OrganizationManager
     {
-        LinkedInEntities ctx=new LinkedInEntities();
-        public OrganizationManager(LinkedInEntities ctx)
+        LinkedInNewEntities ctx ;
+        public OrganizationManager(LinkedInNewEntities lnk)
         {
-
+            ctx = lnk;
         }
-         public bool Add(Organization e)
+        public OrganizationManager()
+        {
+            ctx = new LinkedInNewEntities() ;
+        }
+        public bool Add(Organization e)
         {
             
            

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using ITI_Linkedin_Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +19,18 @@ namespace LinkedinProj.userControls
 
         protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
-            //MembershipUser newuser = Membership.GetUser(CreateUserWizard1.UserName);
-            //Guid newUserId = (Guid)newuser.ProviderUserKey;
 
-            //LinkedInEntities ctx = new LinkedInEntities();
-            //Member m = new Member();
-            //m.Fisrt_Name = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtFirstName")).Text;
-            //m.Last_Name= ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtLastName")).Text;
-            //m.ID =newUserId;
-            //ctx.Members.Add(m);
-            //ctx.SaveChanges();
             MembershipUser newuser = Membership.GetUser(CreateUserWizard1.UserName);
             Guid newUserId = (Guid)newuser.ProviderUserKey;
-            LinkedInEntities ctx = new LinkedInEntities();
-            ctx.Member_Insert(newUserId, ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtFirstName")).Text,
-                "", ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtLastName")).Text, ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("UserName")).Text, "", "",
-                ((RadioButtonList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rdogender")).SelectedValue, "", "", null, DateTime.Now, 0, 1, "", 1, false);
-            ctx.SaveChanges();
+            Member m = new Member();
+            m.Fisrt_Name = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtFirstName")).Text;
+            m.Last_Name = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtLastName")).Text;
+            m.Mail = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("UserName")).Text;
+            m.Gender = ((RadioButtonList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rdogender")).SelectedValue;
+            m.Date_Joined = DateTime.Now;
+            m.Membership_ID = newUserId;
+            m.IsDeleted = false;
+            ManagersEntry.MemberManager.Add(m);
         }
 
     }

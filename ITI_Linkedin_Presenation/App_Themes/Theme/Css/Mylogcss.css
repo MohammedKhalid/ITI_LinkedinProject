@@ -1,0 +1,54 @@
+.backgroundlog {
+    max-width: 100%;
+}
+
+#bglog {
+    background-image: url("../../../Images/Backgroundlog.png");
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.logbutton {
+    background-color: #283E4A;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
+    .logbutton:hover {
+        background-color: #fff;
+        color: black;
+        border-radius: 4px;
+    }
+
+.registerform {
+    padding: 24px 0 0 0;
+}
+
+.headregister {
+    background-color: #F6F8FA;
+    margin: 0px 36.4%;
+}
+
+.registerform .headregister h2 {
+    line-height: 32px;
+    font-weight: 200;
+    color: rgba(0,0,0,0.85);
+    font-size: 26px;
+    text-align: center;
+    padding: 16px 32px 8px 32px;
+}
+
+.registerform .headregister h3 {
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.85);
+    font-size: 17px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 8px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}

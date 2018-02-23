@@ -1,6 +1,7 @@
 ﻿using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,14 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class PostManager
     {
-        LinkedInEntities link;
-        public PostManager(LinkedInEntities ctx)
+        LinkedInNewEntities link;
+        public PostManager(LinkedInNewEntities ctx)
         {
             link = ctx;
+        }
+        public PostManager()
+        {
+            link = new LinkedInNewEntities();
         }
         public bool Add(Post e)
         {
@@ -33,7 +38,15 @@ namespace ITI_Linkedin_Managers.Managers
         {
             return (IQueryable<Post>)link.Posts_GetAll();
         }
-
+        public List<Post> GetPostByuserId(int id)
+        {
+            return link.Posts.Where(a => a.FK_Member == id).ToList() ;
+        }
+        public ObjectResult GetPostByuserConnectionId(int id)
+        {
+            return link.SP_GetConnectionPosts(id);
+          
+        }
         public ObjectResult GetById(int id)
         {
             return link.Posts_GetByID(id);

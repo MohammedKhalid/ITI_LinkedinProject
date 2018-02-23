@@ -13,7 +13,7 @@ namespace DAL
     
     public partial class Member_GetByID_Result
     {
-        public System.Guid ID { get; set; }
+        public int ID { get; set; }
         public string Fisrt_Name { get; set; }
         public string Middle_Name { get; set; }
         public string Last_Name { get; set; }
@@ -26,9 +26,11 @@ namespace DAL
         public Nullable<System.DateTime> Date_Of_Birth { get; set; }
         public Nullable<System.DateTime> Date_Joined { get; set; }
         public Nullable<int> Zip_Code { get; set; }
+        public Nullable<int> FK_Country_Lookups { get; set; }
         public Nullable<int> FK_Country { get; set; }
         public string Profile_URL { get; set; }
         public Nullable<int> FK_Industry { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public System.Guid Membership_ID { get; set; }
     }
 }

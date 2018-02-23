@@ -14,9 +14,11 @@ namespace DAL
     
     public partial class Organization
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Organization()
         {
             this.Certifications = new HashSet<Certification>();
+            this.Certification_Lookups = new HashSet<Certification_Lookups>();
             this.Courses = new HashSet<Course>();
             this.Organization_Follower = new HashSet<Organization_Follower>();
             this.Volunteer_Experience = new HashSet<Volunteer_Experience>();
@@ -34,11 +36,17 @@ namespace DAL
         public Nullable<int> FK_Industry { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Certification> Certifications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Certification_Lookups> Certification_Lookups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Courses { get; set; }
         public virtual Industry Industry { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Organization_Follower> Organization_Follower { get; set; }
         public virtual Organization_Size Organization_Size { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Volunteer_Experience> Volunteer_Experience { get; set; }
     }
 }

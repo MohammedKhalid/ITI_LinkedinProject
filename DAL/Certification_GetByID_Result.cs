@@ -22,6 +22,6 @@ namespace DAL
         public Nullable<int> End_Year { get; set; }
         public Nullable<int> End_Month { get; set; }
         public string URL { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
     }
 }

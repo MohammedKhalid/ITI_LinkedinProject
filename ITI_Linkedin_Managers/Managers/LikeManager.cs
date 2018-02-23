@@ -10,12 +10,15 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class LikeManager
     {
-        LinkedInEntities link ;
-        public LikeManager(LinkedInEntities ct)
+        LinkedInNewEntities link ;
+        public LikeManager(LinkedInNewEntities ct)
         {
             link = ct;
         }
-
+        public LikeManager()
+        {
+            link = new LinkedInNewEntities();
+        }
         public bool Add(Like e)
         {
             //to return entity if added or null if failed 

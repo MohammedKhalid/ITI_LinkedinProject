@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,37 +66,114 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Theme\Css\HomeCss1.css" />
+    <Content Include="App_Themes\Theme\Css\HomeCss2.css" />
+    <Content Include="App_Themes\Theme\Css\LogCss1.css" />
+    <Content Include="App_Themes\Theme\Css\LogCss2.css" />
+    <Content Include="App_Themes\Theme\Css\LogCss3.css" />
+    <Content Include="App_Themes\Theme\Css\Mylogcss.css" />
+    <Content Include="Controls\ctrl_AddEducation.ascx" />
     <Content Include="Controls\ctrl_editIntro.ascx" />
+    <Content Include="Controls\ctrl_ExperienceView.ascx" />
     <Content Include="Controls\ctrl_headline.ascx" />
+    <Content Include="Controls\ctrl_Home.ascx" />
     <Content Include="Controls\ctrl_PasswordRecovery.ascx" />
     <Content Include="Controls\ctrl_ResetPassword.ascx" />
     <Content Include="Css\myStyle.css" />
+    <Content Include="Controls\ctrl_Login.ascx" />
+    <Content Include="Controls\ctrl_Regsister.ascx" />
+    <Content Include="font-awesome\.gitignore" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Forms\frmAddEditEducation.aspx" />
     <Content Include="Forms\frmHead.aspx" />
+    <Content Include="Forms\frmHome.aspx" />
+    <Content Include="Forms\frmRegsister.aspx" />
+    <Content Include="header.html" />
     <Content Include="Images\10405665_870538716317432_5299309338596982137_n.jpg" />
+    <Content Include="Images\Backgroundlog.png" />
     <Content Include="Images\images.jpg" />
     <Content Include="Images\linkedincover.jpg" />
     <Content Include="packages.config" />
+    <Content Include="font-awesome\.bower.json" />
+    <Content Include="font-awesome\.npmignore" />
+    <Content Include="font-awesome\bower.json" />
+    <Content Include="font-awesome\css\font-awesome.css.map" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome\less\animated.less" />
+    <Content Include="font-awesome\less\bordered-pulled.less" />
+    <Content Include="font-awesome\less\core.less" />
+    <Content Include="font-awesome\less\fixed-width.less" />
+    <Content Include="font-awesome\less\font-awesome.less" />
+    <Content Include="font-awesome\less\icons.less" />
+    <Content Include="font-awesome\less\larger.less" />
+    <Content Include="font-awesome\less\list.less" />
+    <Content Include="font-awesome\less\mixins.less" />
+    <Content Include="font-awesome\less\path.less" />
+    <Content Include="font-awesome\less\rotated-flipped.less" />
+    <Content Include="font-awesome\less\screen-reader.less" />
+    <Content Include="font-awesome\less\stacked.less" />
+    <Content Include="font-awesome\less\variables.less" />
+    <Content Include="font-awesome\scss\font-awesome.scss" />
+    <Content Include="font-awesome\scss\_animated.scss" />
+    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome\scss\_core.scss" />
+    <Content Include="font-awesome\scss\_fixed-width.scss" />
+    <Content Include="font-awesome\scss\_icons.scss" />
+    <Content Include="font-awesome\scss\_larger.scss" />
+    <Content Include="font-awesome\scss\_list.scss" />
+    <Content Include="font-awesome\scss\_mixins.scss" />
+    <Content Include="font-awesome\scss\_path.scss" />
+    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome\scss\_screen-reader.scss" />
+    <Content Include="font-awesome\scss\_stacked.scss" />
+    <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="App_Themes\Skin\Skin1.skin" />
+    <Content Include="Login_Master.Master" />
+    <Content Include="Home_Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controls\ctrl_Login.ascx" />
-    <Content Include="Controls\ctrl_Regsister.ascx" />
-    <Content Include="Forms\frmRegsister.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ctrl_AddEducation.ascx.cs">
+      <DependentUpon>ctrl_AddEducation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_AddEducation.ascx.designer.cs">
+      <DependentUpon>ctrl_AddEducation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctrl_editIntro.ascx.cs">
       <DependentUpon>ctrl_editIntro.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\ctrl_editIntro.ascx.designer.cs">
       <DependentUpon>ctrl_editIntro.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctrl_ExperienceView.ascx.cs">
+      <DependentUpon>ctrl_ExperienceView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_ExperienceView.ascx.designer.cs">
+      <DependentUpon>ctrl_ExperienceView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ctrl_headline.ascx.cs">
       <DependentUpon>ctrl_headline.ascx</DependentUpon>
@@ -103,12 +182,12 @@
     <Compile Include="Controls\ctrl_headline.ascx.designer.cs">
       <DependentUpon>ctrl_headline.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ctrl_Login.ascx.cs">
-      <DependentUpon>ctrl_Login.ascx</DependentUpon>
+    <Compile Include="Controls\ctrl_Home.ascx.cs">
+      <DependentUpon>ctrl_Home.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\ctrl_Login.ascx.designer.cs">
-      <DependentUpon>ctrl_Login.ascx</DependentUpon>
+    <Compile Include="Controls\ctrl_Home.ascx.designer.cs">
+      <DependentUpon>ctrl_Home.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ctrl_PasswordRecovery.ascx.cs">
       <DependentUpon>ctrl_PasswordRecovery.ascx</DependentUpon>
@@ -117,13 +196,6 @@
     <Compile Include="Controls\ctrl_PasswordRecovery.ascx.designer.cs">
       <DependentUpon>ctrl_PasswordRecovery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ctrl_Regsister.ascx.cs">
-      <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\ctrl_Regsister.ascx.designer.cs">
-      <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ctrl_ResetPassword.ascx.cs">
       <DependentUpon>ctrl_ResetPassword.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,12 +203,40 @@
     <Compile Include="Controls\ctrl_ResetPassword.ascx.designer.cs">
       <DependentUpon>ctrl_ResetPassword.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ctrl_Login.ascx.cs">
+      <DependentUpon>ctrl_Login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_Login.ascx.designer.cs">
+      <DependentUpon>ctrl_Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctrl_Regsister.ascx.cs">
+      <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_Regsister.ascx.designer.cs">
+      <DependentUpon>ctrl_Regsister.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddEditEducation.aspx.cs">
+      <DependentUpon>frmAddEditEducation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddEditEducation.aspx.designer.cs">
+      <DependentUpon>frmAddEditEducation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmHead.aspx.cs">
       <DependentUpon>frmHead.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\frmHead.aspx.designer.cs">
       <DependentUpon>frmHead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHome.aspx.cs">
+      <DependentUpon>frmHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHome.aspx.designer.cs">
+      <DependentUpon>frmHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmRegsister.aspx.cs">
       <DependentUpon>frmRegsister.aspx</DependentUpon>
@@ -147,6 +247,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home_Master.Master.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home_Master.Master.designer.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login_Master.Master.cs">
+      <DependentUpon>Login_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login_Master.Master.designer.cs">
+      <DependentUpon>Login_Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,11 +278,15 @@
       <Name>ITI_Linkedin_Managers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

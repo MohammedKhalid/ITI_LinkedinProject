@@ -10,10 +10,14 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class CountryManager
     {
-        LinkedInEntities link;
-        public CountryManager(LinkedInEntities ctx)
+        LinkedInNewEntities link;
+        public CountryManager(LinkedInNewEntities ctx)
         {
             link = ctx;
+        }
+        public CountryManager()
+        {
+            link = new LinkedInNewEntities();
         }
         public bool Add(Country e)
         {

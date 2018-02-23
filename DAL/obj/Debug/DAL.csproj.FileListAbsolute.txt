@@ -7,3 +7,4 @@ M:\ITI\Asp.NET\ITI_Linkedin\DAL\bin\Debug\EntityFramework.xml
 M:\ITI\Asp.NET\ITI_Linkedin\DAL\bin\Debug\EntityFramework.SqlServer.xml
 M:\ITI\Asp.NET\ITI_Linkedin\DAL\obj\Debug\DAL.dll
 M:\ITI\Asp.NET\ITI_Linkedin\DAL\obj\Debug\DAL.pdb
+M:\ITI\Asp.NET\ITI_Linkedin\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

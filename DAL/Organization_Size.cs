@@ -14,6 +14,7 @@ namespace DAL
     
     public partial class Organization_Size
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Organization_Size()
         {
             this.Organizations = new HashSet<Organization>();
@@ -23,6 +24,7 @@ namespace DAL
         public string Name { get; set; }
         public string Description { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Organization> Organizations { get; set; }
     }
 }

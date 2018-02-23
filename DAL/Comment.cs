@@ -17,7 +17,7 @@ namespace DAL
         public int ID { get; set; }
         public string Content { get; set; }
         public Nullable<int> FK_Post { get; set; }
-        public Nullable<System.Guid> FK_MemberWrite { get; set; }
+        public Nullable<int> FK_MemberWrite { get; set; }
     
         public virtual Member Member { get; set; }
         public virtual Post Post { get; set; }

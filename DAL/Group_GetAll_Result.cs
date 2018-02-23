@@ -17,7 +17,7 @@ namespace DAL
         public string Name { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Data_Start { get; set; }
-        public Nullable<System.Guid> FK_Create_Member { get; set; }
+        public Nullable<int> FK_Create_Member { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     }
 }

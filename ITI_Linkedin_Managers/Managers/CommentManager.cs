@@ -10,10 +10,14 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class CommentManager
     {
-        LinkedInEntities link;
-        public CommentManager(LinkedInEntities ctx)
+        LinkedInNewEntities link;
+        public CommentManager(LinkedInNewEntities ctx)
         {
             link = ctx;
+        }
+        public CommentManager()
+        {
+            link = new LinkedInNewEntities();
         }
         public bool Add(Comment e)
         {

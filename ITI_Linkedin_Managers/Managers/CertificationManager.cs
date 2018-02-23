@@ -10,10 +10,14 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class CertificationManager
     {
-        LinkedInEntities link;
-        public CertificationManager(LinkedInEntities ctx)
+        LinkedInNewEntities link;
+        public CertificationManager(LinkedInNewEntities ctx)
         {
             link = ctx;
+        }
+        public CertificationManager()
+        {
+            link = new LinkedInNewEntities();
         }
         public bool Add(Certification e)
         {
@@ -41,8 +45,8 @@ namespace ITI_Linkedin_Managers.Managers
 
         public bool Update(Certification entity)
         {
-            link.Certification_Update(entity.ID, entity.Name, entity.FK_Org,entity.License_Number,entity.Start_Year,
-                entity.Start_Month,entity.End_Year,entity.End_Month,entity.URL,entity.FK_Member);
+            link.Certification_Lookups_Update(entity.ID, entity.Name, entity.FK_Org, entity.License_Number, entity.Start_Year,
+                entity.Start_Month, entity.End_Year, entity.End_Month, entity.URL, entity.FK_Member);
             return link.SaveChanges() > 0;
         }
     }

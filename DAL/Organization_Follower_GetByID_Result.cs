@@ -15,6 +15,6 @@ namespace DAL
     {
         public int ID { get; set; }
         public Nullable<int> FK_Organization { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
     }
 }

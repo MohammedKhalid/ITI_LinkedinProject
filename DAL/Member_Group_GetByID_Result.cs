@@ -14,7 +14,7 @@ namespace DAL
     public partial class Member_Group_GetByID_Result
     {
         public int ID { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
         public Nullable<int> FK_Group { get; set; }
         public Nullable<System.DateTime> Date_Join { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

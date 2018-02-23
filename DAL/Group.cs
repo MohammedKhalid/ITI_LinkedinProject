@@ -14,6 +14,7 @@ namespace DAL
     
     public partial class Group
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Group()
         {
             this.Member_Group = new HashSet<Member_Group>();
@@ -23,10 +24,11 @@ namespace DAL
         public string Name { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Data_Start { get; set; }
-        public Nullable<System.Guid> FK_Create_Member { get; set; }
+        public Nullable<int> FK_Create_Member { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Member Member { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Group> Member_Group { get; set; }
     }
 }

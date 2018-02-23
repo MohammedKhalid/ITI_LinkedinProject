@@ -10,10 +10,14 @@ namespace ITI_Linkedin_Managers.Managers
 {
     public class GroupManager
     {
-        LinkedInEntities link;
-        public GroupManager(LinkedInEntities ctx)
+        LinkedInNewEntities link;
+        public GroupManager(LinkedInNewEntities ctx)
         {
             link = ctx;
+        }
+        public GroupManager()
+        {
+            link = new LinkedInNewEntities();
         }
         public bool Add(Group e)
         {

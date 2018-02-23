@@ -11,17 +11,22 @@ namespace ITI_Linkedin_Managers
 {
     public class EducationManger
     {
-        
-       LinkedInEntities link=new LinkedInEntities();
-        public EducationManger(LinkedInEntities ctx)
+
+        LinkedInNewEntities link =new LinkedInNewEntities();
+        public EducationManger(LinkedInNewEntities ctx)
         {
             link = ctx
+                ;
+        }
+        public EducationManger()
+        {
+            link = new LinkedInNewEntities()
                 ;
         }
         public bool Add(Education e)
         {  
             //to return entity if added or null if failed 
-            return link.Education_Insert(e.FK_School, e.Degree, e.FieldOfStudy, e.Grade, e.Activities, e.From_Year, e.To_Year, e.Description, e.FK_Member) > 0;
+            return link.Education_Insert(e.FK_School, e.Degree, e.FieldOfStudy, e.Grade, e.Activities, e.From_Year, e.To_Year, e.Description, e.ID) > 0;
              
         }
 

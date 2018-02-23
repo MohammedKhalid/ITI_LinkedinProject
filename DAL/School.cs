@@ -14,6 +14,7 @@ namespace DAL
     
     public partial class School
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public School()
         {
             this.Educations = new HashSet<Education>();
@@ -28,6 +29,7 @@ namespace DAL
         public Nullable<System.DateTime> Date_Start { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Educations { get; set; }
     }
 }

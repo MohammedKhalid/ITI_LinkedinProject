@@ -14,9 +14,11 @@ namespace DAL
     
     public partial class Member
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Member()
         {
             this.Certifications = new HashSet<Certification>();
+            this.Certification_Lookups = new HashSet<Certification_Lookups>();
             this.Comments = new HashSet<Comment>();
             this.Courses = new HashSet<Course>();
             this.Educations = new HashSet<Education>();
@@ -28,12 +30,13 @@ namespace DAL
             this.Member_Group = new HashSet<Member_Group>();
             this.Organization_Follower = new HashSet<Organization_Follower>();
             this.Posts = new HashSet<Post>();
+            this.Skills_Lookups = new HashSet<Skills_Lookups>();
             this.Skills = new HashSet<Skill>();
             this.Volunteer_Experience = new HashSet<Volunteer_Experience>();
             this.Work_Experience = new HashSet<Work_Experience>();
         }
     
-        public System.Guid ID { get; set; }
+        public int ID { get; set; }
         public string Fisrt_Name { get; set; }
         public string Middle_Name { get; set; }
         public string Last_Name { get; set; }
@@ -46,27 +49,49 @@ namespace DAL
         public Nullable<System.DateTime> Date_Of_Birth { get; set; }
         public Nullable<System.DateTime> Date_Joined { get; set; }
         public Nullable<int> Zip_Code { get; set; }
+        public Nullable<int> FK_Country_Lookups { get; set; }
         public Nullable<int> FK_Country { get; set; }
         public string Profile_URL { get; set; }
         public Nullable<int> FK_Industry { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public System.Guid Membership_ID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Certification> Certifications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Certification_Lookups> Certification_Lookups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual Country Country { get; set; }
+        public virtual Country_Lookups Country_Lookups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Courses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Educations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Group> Groups { get; set; }
         public virtual Industry Industry { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Langauge> Langauges { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Connection> Member_Connection { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Connection> Member_Connection1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Group> Member_Group { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Organization_Follower> Organization_Follower { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Skills_Lookups> Skills_Lookups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Skill> Skills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Volunteer_Experience> Volunteer_Experience { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Work_Experience> Work_Experience { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace DAL
     
     public partial class Work_Experience
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Work_Experience()
         {
             this.Links = new HashSet<Link>();
@@ -29,10 +30,12 @@ namespace DAL
         public Nullable<int> To_Year { get; set; }
         public Nullable<int> To_Month { get; set; }
         public string Description { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Link> Links { get; set; }
         public virtual Member Member { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Upload_Media> Upload_Media { get; set; }
     }
 }

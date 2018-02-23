@@ -10,11 +10,15 @@ namespace ITI_Linkedin_Managers
 {
    public class SkillsManager
     {
-        LinkedInEntities link;
-       public SkillsManager (LinkedInEntities ctx)
+        LinkedInNewEntities link;
+       public SkillsManager (LinkedInNewEntities ctx)
        {
             link = ctx;
        }
+        public SkillsManager()
+        {
+            link = new LinkedInNewEntities();
+        }
         public bool Add(Skill e)
         {
             //to return entity if added or null if failed 

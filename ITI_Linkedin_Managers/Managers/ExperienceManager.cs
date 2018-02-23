@@ -10,12 +10,17 @@ namespace ITI_Linkedin_Managers
 {
    public class ExperienceManager
     {
-        LinkedInEntities link = new LinkedInEntities();
-        public ExperienceManager(LinkedInEntities ct)
+        LinkedInNewEntities link;
+        public ExperienceManager(LinkedInNewEntities ct)
         {
+            link = ct;
         }
-            
-            public bool Add(Work_Experience e)
+        public ExperienceManager()
+        {
+            link = new LinkedInNewEntities();
+        }
+
+        public bool Add(Work_Experience e)
             {
                 //to return entity if added or null if failed 
                 return link.Work_Experience_Insert(e.Jop_Title,e.FK_Org,e.Location,e.From_Year,e.From_Month,e.To_Year,e.To_Month,e.Description,e.FK_Member) > 0;
@@ -29,11 +34,14 @@ namespace ITI_Linkedin_Managers
 
             }
 
-            public IQueryable<Work_Experience> GetAll()
+            public ObjectResult GetAll()
             {
-                return (IQueryable<Work_Experience>)link.Education_GetAll();
+                return link.Work_Experience_GetAll();
             }
-
+        public IQueryable<Work_Experience> GetByMemberId(int id)
+        {
+            return link.Work_Experience.Where(a => a.FK_Member == id);
+        }
             public ObjectResult GetById(int id)
             {
                 return link.Work_Experience_GetByID(id);

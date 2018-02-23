@@ -14,8 +14,8 @@ namespace DAL
     public partial class Member_Connection_GetAll_Result
     {
         public int ID { get; set; }
-        public Nullable<System.Guid> FK_Member { get; set; }
-        public Nullable<System.Guid> FK_Connect_Member { get; set; }
+        public Nullable<int> FK_Member { get; set; }
+        public Nullable<int> FK_Connect_Member { get; set; }
         public Nullable<System.DateTime> Date_Start { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     }
