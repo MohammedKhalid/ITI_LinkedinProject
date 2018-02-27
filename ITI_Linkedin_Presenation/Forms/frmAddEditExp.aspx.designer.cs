@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI_Linkedin_Presenation.Controls {
+namespace ITI_Linkedin_Presenation.Forms {
     
     
-    public partial class ctrl_PasswordRecovery {
+    public partial class frmAddEditExp {
         
         /// <summary>
-        /// PasswordRecovery1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PasswordRecovery PasswordRecovery1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// ctrl_AddEditExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ITI_Linkedin_Presenation.Controls.ctrl_AddEditExp ctrl_AddEditExp;
     }
 }

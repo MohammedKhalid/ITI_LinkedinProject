@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers
 {
-   public class ExperienceManager
+    public class ExperienceManager
     {
         LinkedInNewEntities link;
         public ExperienceManager(LinkedInNewEntities ct)
@@ -21,38 +21,55 @@ namespace ITI_Linkedin_Managers
         }
 
         public bool Add(Work_Experience e)
-            {
-                //to return entity if added or null if failed 
-                return link.Work_Experience_Insert(e.Jop_Title,e.FK_Org,e.Location,e.From_Year,e.From_Month,e.To_Year,e.To_Month,e.Description,e.FK_Member) > 0;
+        {
+            //to return entity if added or null if failed 
+            return link.Work_Experience_Insert(e.Jop_Title, e.FK_Org, e.Location, e.From_Year, e.From_Month, e.To_Year, e.To_Month, e.Description, e.FK_Member) > 0;
 
-            }
+        }
 
-            public bool Delete(int id)
-            {
+        public bool Delete(int id)
+        {
 
-                return link.Work_Experience_Delete(id) > 0;
+            return link.Work_Experience_Delete(id) > 0;
 
-            }
+        }
 
-            public ObjectResult GetAll()
-            {
-                return link.Work_Experience_GetAll();
-            }
+        public ObjectResult GetAll()
+        {
+            return link.Work_Experience_GetAll();
+        }
         public IQueryable<Work_Experience> GetByMemberId(int id)
         {
             return link.Work_Experience.Where(a => a.FK_Member == id);
         }
-            public ObjectResult GetById(int id)
-            {
-                return link.Work_Experience_GetByID(id);
-            }
+        public ObjectResult GetById(int id)
+        {
+            return link.Work_Experience_GetByID(id);
+        }
 
-            public bool Update(Work_Experience entity)
-            {
-                link.Work_Experience_Update(entity.ID, entity.Jop_Title, entity.FK_Org, entity.Location, entity.From_Year,
-                    entity.From_Month, entity.To_Year, entity.To_Month, entity.Description, entity.FK_Member);
-                return link.SaveChanges() > 0;
-            }
-        
+        public bool Update(Work_Experience entity)
+        {
+            link.Work_Experience_Update(entity.ID, entity.Jop_Title, entity.FK_Org, entity.Location, entity.From_Year,
+                entity.From_Month, entity.To_Year, entity.To_Month, entity.Description, entity.FK_Member);
+            return link.SaveChanges() > 0;
+        }
+        public IQueryable GetExp(int id)
+        {
+            var x = from e in link.Work_Experience
+                    join org in link.Organizations on e.FK_Org equals org.ID
+                    where e.FK_Member == id
+                    select new {
+                        Logo_Img = org.Logo_Img,
+                        Title = org.Title,
+                        Location = org.Location,
+                        From_Month = e.From_Month,
+                        From_Year = e.From_Year,
+                        To_Year = e.To_Year,
+                        To_Month = e.To_Month,
+                        Jop_Title = e.Jop_Title,
+                        Description = e.Description};
+            return x;
+        }
+
     }
 }

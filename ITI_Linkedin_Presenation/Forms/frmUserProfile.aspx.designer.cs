@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI_Linkedin_Presenation.Controls {
+namespace ITI_Linkedin_Presenation.Forms {
     
     
-    public partial class ctrl_ExperienceView {
+    public partial class frmHead {
         
         /// <summary>
-        /// lblsectionTitle control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblsectionTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lnkExp_Add control.
+        /// ctrl_headline1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkExp_Add;
+        protected global::ITI_Linkedin_Presenation.Controls.ctrl_headline ctrl_headline1;
         
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// ctrl_ExperienceView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::ITI_Linkedin_Presenation.Controls.ctrl_ExperienceView ctrl_ExperienceView;
         
         /// <summary>
-        /// ListView2 control.
+        /// ctrl_viewEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView2;
-        
-        /// <summary>
-        /// ObjectDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
+        protected global::ITI_Linkedin_Presenation.Controls.ctrl_viewEducation ctrl_viewEducation;
     }
 }

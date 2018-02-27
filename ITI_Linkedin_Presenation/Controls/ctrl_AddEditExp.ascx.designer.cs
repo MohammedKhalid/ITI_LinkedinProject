@@ -10,106 +10,70 @@
 namespace ITI_Linkedin_Presenation.Controls {
     
     
-    public partial class ctrl_AddEducation {
+    public partial class ctrl_AddEditExp {
         
         /// <summary>
-        /// lbl_addeducation control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_addeducation;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lbl_school control.
+        /// lbl_title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_school;
+        protected global::System.Web.UI.WebControls.Label lbl_title;
         
         /// <summary>
-        /// txt_school control.
+        /// txt_title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_school;
+        protected global::System.Web.UI.WebControls.TextBox txt_title;
         
         /// <summary>
-        /// lbl_degree control.
+        /// lbl_company control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_degree;
+        protected global::System.Web.UI.WebControls.Label lbl_company;
         
         /// <summary>
-        /// txt_degree control.
+        /// txt_company control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_degree;
+        protected global::System.Web.UI.WebControls.TextBox txt_company;
         
         /// <summary>
-        /// lbl_fieldofstudy control.
+        /// lbl_location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fieldofstudy;
+        protected global::System.Web.UI.WebControls.Label lbl_location;
         
         /// <summary>
-        /// txt_fieldofstudy control.
+        /// txt_location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_fieldofstudy;
-        
-        /// <summary>
-        /// lbl_grade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_grade;
-        
-        /// <summary>
-        /// txt_grade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grade;
-        
-        /// <summary>
-        /// lbl_activitesandsocieties control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_activitesandsocieties;
-        
-        /// <summary>
-        /// lbl_ex control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_ex;
+        protected global::System.Web.UI.WebControls.TextBox txt_location;
         
         /// <summary>
         /// lbl_from control.
@@ -166,6 +130,60 @@ namespace ITI_Linkedin_Presenation.Controls {
         protected global::System.Web.UI.WebControls.DropDownList ddl_toyear;
         
         /// <summary>
+        /// CheckBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        
+        /// <summary>
+        /// lbl_label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_label1;
+        
+        /// <summary>
+        /// CheckBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        
+        /// <summary>
+        /// lbl_label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_label2;
+        
+        /// <summary>
+        /// CheckBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        
+        /// <summary>
+        /// lbl_label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_label3;
+        
+        /// <summary>
         /// lbl_description control.
         /// </summary>
         /// <remarks>
@@ -211,21 +229,12 @@ namespace ITI_Linkedin_Presenation.Controls {
         protected global::System.Web.UI.WebControls.Button btn_link;
         
         /// <summary>
-        /// btnDelete control.
+        /// btn_save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
-        
-        /// <summary>
-        /// brnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button brnSave;
+        protected global::System.Web.UI.WebControls.Button btn_save;
     }
 }

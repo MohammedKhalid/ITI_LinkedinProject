@@ -24,7 +24,7 @@ namespace LinkedinProj.userControls
                 //Get user id and data to get related posts in next page
                 int user_id = ManagersEntry.MemberManager.GetById((Guid)Membership.GetUser(Login1.UserName).ProviderUserKey).ID;
                 Session.Add("userID", user_id);
-                Response.Redirect("frmHead.aspx");
+                Response.Redirect("frmUserProfile.aspx");
             }
         }
     }

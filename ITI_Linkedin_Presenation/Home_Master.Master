@@ -7,7 +7,7 @@
 <head>
     <link href="App_Themes/Theme/Css/HomeCss1.css" rel="stylesheet" />
     <link href="App_Themes/Theme/Css/HomeCss2.css" rel="stylesheet" />
-
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
 
     </asp:ContentPlaceHolder>

@@ -10,7 +10,7 @@
 namespace ITI_Linkedin_Presenation.Controls {
     
     
-    public partial class ctrl_ExperienceView {
+    public partial class ctrl_viewEducation {
         
         /// <summary>
         /// lblsectionTitle control.
@@ -40,21 +40,12 @@ namespace ITI_Linkedin_Presenation.Controls {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
         
         /// <summary>
-        /// ListView2 control.
+        /// ListView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView2;
-        
-        /// <summary>
-        /// ObjectDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
+        protected global::System.Web.UI.WebControls.ListView ListView1;
     }
 }

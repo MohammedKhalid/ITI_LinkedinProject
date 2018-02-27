@@ -3,19 +3,24 @@
     .auto-style1 {
         width: 100%;
     }
+
     .auto-style2 {
         height: 23px;
         width: 1233px;
     }
+
     #txta_activitiesandsocieties {
         width: 938px;
     }
+
     .auto-style3 {
         width: 542px;
     }
+
     .auto-style4 {
         width: 75%;
     }
+
     .auto-style5 {
         width: 1233px;
     }
@@ -23,7 +28,8 @@
 
 <asp:Label ID="lbl_addeducation" runat="server" Font-Size="X-Large" Text="Add education"></asp:Label>
 <p>
-    &nbsp;</p>
+    &nbsp;
+</p>
 <table class="auto-style1">
     <tr>
         <td class="auto-style5">
@@ -72,7 +78,7 @@
     </tr>
     <tr>
         <td class="auto-style5">
-            <textarea ID="txta_activitiesandsocieties" name="S1" rows="2"></textarea></td>
+            <textarea id="txta_activitiesandsocieties" name="S1" rows="2"></textarea></td>
     </tr>
     <tr>
         <td class="auto-style5">
@@ -81,7 +87,8 @@
     </tr>
 </table>
 <p>
-    &nbsp;</p>
+    &nbsp;
+</p>
 <table class="auto-style4">
     <tr>
         <td class="auto-style3">
@@ -95,35 +102,35 @@
         <td class="auto-style3">
             <asp:DropDownList ID="ddl_frommonth" runat="server" Height="37px" Width="410px">
                 <asp:ListItem Enabled="true" Text="Month" Value="0"></asp:ListItem>
-    <asp:ListItem Text="January" Value="1"></asp:ListItem>
-    <asp:ListItem Text="February" Value="2"></asp:ListItem>
-    <asp:ListItem Text="March" Value="3"></asp:ListItem>
-    <asp:ListItem Text="April" Value="4"></asp:ListItem>
-    <asp:ListItem Text="May" Value="5"></asp:ListItem>
-    <asp:ListItem Text="June" Value="6"></asp:ListItem>
-    <asp:ListItem Text="July" Value="7"></asp:ListItem>
-    <asp:ListItem Text="August" Value="8"></asp:ListItem>
-    <asp:ListItem Text="September" Value="9"></asp:ListItem>
-    <asp:ListItem Text="October" Value="10"></asp:ListItem>
-    <asp:ListItem Text="November" Value="11"></asp:ListItem>
-    <asp:ListItem Text="December" Value="12"></asp:ListItem>
+                <asp:ListItem Text="January" Value="1"></asp:ListItem>
+                <asp:ListItem Text="February" Value="2"></asp:ListItem>
+                <asp:ListItem Text="March" Value="3"></asp:ListItem>
+                <asp:ListItem Text="April" Value="4"></asp:ListItem>
+                <asp:ListItem Text="May" Value="5"></asp:ListItem>
+                <asp:ListItem Text="June" Value="6"></asp:ListItem>
+                <asp:ListItem Text="July" Value="7"></asp:ListItem>
+                <asp:ListItem Text="August" Value="8"></asp:ListItem>
+                <asp:ListItem Text="September" Value="9"></asp:ListItem>
+                <asp:ListItem Text="October" Value="10"></asp:ListItem>
+                <asp:ListItem Text="November" Value="11"></asp:ListItem>
+                <asp:ListItem Text="December" Value="12"></asp:ListItem>
             </asp:DropDownList>
         </td>
         <td>
             <asp:DropDownList ID="ddl_tomonth" runat="server" Height="40px" Width="410px">
                 <asp:ListItem Enabled="true" Text="Month" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="January" Value="1"></asp:ListItem>
-    <asp:ListItem Text="February" Value="2"></asp:ListItem>
-    <asp:ListItem Text="March" Value="3"></asp:ListItem>
-    <asp:ListItem Text="April" Value="4"></asp:ListItem>
-    <asp:ListItem Text="May" Value="5"></asp:ListItem>
-    <asp:ListItem Text="June" Value="6"></asp:ListItem>
-    <asp:ListItem Text="July" Value="7"></asp:ListItem>
-    <asp:ListItem Text="August" Value="8"></asp:ListItem>
-    <asp:ListItem Text="September" Value="9"></asp:ListItem>
-    <asp:ListItem Text="October" Value="10"></asp:ListItem>
-    <asp:ListItem Text="November" Value="11"></asp:ListItem>
-    <asp:ListItem Text="December" Value="12"></asp:ListItem>
+                <asp:ListItem Text="January" Value="1"></asp:ListItem>
+                <asp:ListItem Text="February" Value="2"></asp:ListItem>
+                <asp:ListItem Text="March" Value="3"></asp:ListItem>
+                <asp:ListItem Text="April" Value="4"></asp:ListItem>
+                <asp:ListItem Text="May" Value="5"></asp:ListItem>
+                <asp:ListItem Text="June" Value="6"></asp:ListItem>
+                <asp:ListItem Text="July" Value="7"></asp:ListItem>
+                <asp:ListItem Text="August" Value="8"></asp:ListItem>
+                <asp:ListItem Text="September" Value="9"></asp:ListItem>
+                <asp:ListItem Text="October" Value="10"></asp:ListItem>
+                <asp:ListItem Text="November" Value="11"></asp:ListItem>
+                <asp:ListItem Text="December" Value="12"></asp:ListItem>
             </asp:DropDownList>
         </td>
     </tr>
@@ -131,7 +138,7 @@
         <td class="auto-style3">
             <asp:DropDownList ID="ddl_fromyear" runat="server" Height="39px" Width="410px">
                 <asp:ListItem Enabled="true" Text="Year" Value="-1"></asp:ListItem>
-   
+
 
 
 
@@ -139,17 +146,18 @@
         </td>
         <td>
             <asp:DropDownList ID="ddl_toyear" runat="server" Height="40px" Width="410px">
-    <asp:ListItem Enabled="true" Text="Year" Value="-1"></asp:ListItem>
+                <asp:ListItem Enabled="true" Text="Year" Value="-1"></asp:ListItem>
 
 
             </asp:DropDownList>
         </td>
     </tr>
-   
+
 </table>
 
 <p>
-    &nbsp;</p>
+    &nbsp;
+</p>
 <table class="auto-style1">
     <tr>
         <td>
@@ -176,8 +184,15 @@
     <tr>
         <td>
             <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="btn_upload_Click" />
-&nbsp;<asp:Button ID="btn_link" runat="server" Text="Link" />
+            &nbsp;<asp:Button ID="btn_link" runat="server" Text="Link" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Button ID="btnDelete" runat="server" Text="Delete"  />
+        </td>
+        <td>
+            <asp:Button ID="brnSave" runat="server" Text="Save"  />
         </td>
     </tr>
 </table>
-     
