@@ -12,18 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Skills_Lookups
+    public partial class LookupSkill_Member
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Skills_Lookups()
-        {
-            this.LookupSkill_Member = new HashSet<LookupSkill_Member>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
+        public int FK_LookupSkill { get; set; }
+        public int FK_Member { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LookupSkill_Member> LookupSkill_Member { get; set; }
+        public virtual Member Member { get; set; }
+        public virtual Skills_Lookups Skills_Lookups { get; set; }
     }
 }

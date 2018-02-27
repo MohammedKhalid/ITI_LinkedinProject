@@ -49,6 +49,7 @@ namespace DAL
         public virtual DbSet<Langauge> Langauges { get; set; }
         public virtual DbSet<Like> Likes { get; set; }
         public virtual DbSet<Link> Links { get; set; }
+        public virtual DbSet<LookupSkill_Member> LookupSkill_Member { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<Member_Connection> Member_Connection { get; set; }
         public virtual DbSet<Member_Group> Member_Group { get; set; }
@@ -57,8 +58,10 @@ namespace DAL
         public virtual DbSet<Organization_Size> Organization_Size { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<School> Schools { get; set; }
+        public virtual DbSet<Skill_Member> Skill_Member { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<Skills_Lookups> Skills_Lookups { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Upload_Media> Upload_Media { get; set; }
         public virtual DbSet<Volunteer_Experience> Volunteer_Experience { get; set; }
         public virtual DbSet<Work_Experience> Work_Experience { get; set; }
@@ -1378,6 +1381,23 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Comment_GetByID_Result>("Comment_GetByID", iDParameter);
         }
     
+        public virtual int Comment_Insert(string content, Nullable<int> fK_Post, Nullable<int> fK_MemberWrite)
+        {
+            var contentParameter = content != null ?
+                new ObjectParameter("Content", content) :
+                new ObjectParameter("Content", typeof(string));
+    
+            var fK_PostParameter = fK_Post.HasValue ?
+                new ObjectParameter("FK_Post", fK_Post) :
+                new ObjectParameter("FK_Post", typeof(int));
+    
+            var fK_MemberWriteParameter = fK_MemberWrite.HasValue ?
+                new ObjectParameter("FK_MemberWrite", fK_MemberWrite) :
+                new ObjectParameter("FK_MemberWrite", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Comment_Insert", contentParameter, fK_PostParameter, fK_MemberWriteParameter);
+        }
+    
         public virtual int Comment_Update(Nullable<int> iD, string content, Nullable<int> fK_Post, Nullable<int> fK_MemberWrite)
         {
             var iDParameter = iD.HasValue ?
@@ -1535,6 +1555,92 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Education_GetByID_Result>("Education_GetByID", iDParameter);
         }
     
+        public virtual int Education_Insert(Nullable<int> fK_School, string degree, string fieldOfStudy, string grade, string activities, Nullable<int> from_Year, Nullable<int> to_Year, string description, Nullable<int> fK_Member)
+        {
+            var fK_SchoolParameter = fK_School.HasValue ?
+                new ObjectParameter("FK_School", fK_School) :
+                new ObjectParameter("FK_School", typeof(int));
+    
+            var degreeParameter = degree != null ?
+                new ObjectParameter("Degree", degree) :
+                new ObjectParameter("Degree", typeof(string));
+    
+            var fieldOfStudyParameter = fieldOfStudy != null ?
+                new ObjectParameter("FieldOfStudy", fieldOfStudy) :
+                new ObjectParameter("FieldOfStudy", typeof(string));
+    
+            var gradeParameter = grade != null ?
+                new ObjectParameter("Grade", grade) :
+                new ObjectParameter("Grade", typeof(string));
+    
+            var activitiesParameter = activities != null ?
+                new ObjectParameter("Activities", activities) :
+                new ObjectParameter("Activities", typeof(string));
+    
+            var from_YearParameter = from_Year.HasValue ?
+                new ObjectParameter("From_Year", from_Year) :
+                new ObjectParameter("From_Year", typeof(int));
+    
+            var to_YearParameter = to_Year.HasValue ?
+                new ObjectParameter("To_Year", to_Year) :
+                new ObjectParameter("To_Year", typeof(int));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Insert", fK_SchoolParameter, degreeParameter, fieldOfStudyParameter, gradeParameter, activitiesParameter, from_YearParameter, to_YearParameter, descriptionParameter, fK_MemberParameter);
+        }
+    
+        public virtual int Education_Update(Nullable<int> iD, Nullable<int> fK_School, string degree, string fieldOfStudy, string grade, string activities, Nullable<int> from_Year, Nullable<int> to_Year, string description, Nullable<int> fK_Member)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var fK_SchoolParameter = fK_School.HasValue ?
+                new ObjectParameter("FK_School", fK_School) :
+                new ObjectParameter("FK_School", typeof(int));
+    
+            var degreeParameter = degree != null ?
+                new ObjectParameter("Degree", degree) :
+                new ObjectParameter("Degree", typeof(string));
+    
+            var fieldOfStudyParameter = fieldOfStudy != null ?
+                new ObjectParameter("FieldOfStudy", fieldOfStudy) :
+                new ObjectParameter("FieldOfStudy", typeof(string));
+    
+            var gradeParameter = grade != null ?
+                new ObjectParameter("Grade", grade) :
+                new ObjectParameter("Grade", typeof(string));
+    
+            var activitiesParameter = activities != null ?
+                new ObjectParameter("Activities", activities) :
+                new ObjectParameter("Activities", typeof(string));
+    
+            var from_YearParameter = from_Year.HasValue ?
+                new ObjectParameter("From_Year", from_Year) :
+                new ObjectParameter("From_Year", typeof(int));
+    
+            var to_YearParameter = to_Year.HasValue ?
+                new ObjectParameter("To_Year", to_Year) :
+                new ObjectParameter("To_Year", typeof(int));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Update", iDParameter, fK_SchoolParameter, degreeParameter, fieldOfStudyParameter, gradeParameter, activitiesParameter, from_YearParameter, to_YearParameter, descriptionParameter, fK_MemberParameter);
+        }
+    
         public virtual int Group_Delete(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -1556,6 +1662,60 @@ namespace DAL
                 new ObjectParameter("ID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Group_GetByID_Result>("Group_GetByID", iDParameter);
+        }
+    
+        public virtual int Group_Insert(string name, string description, Nullable<System.DateTime> data_Start, Nullable<int> fK_Create_Member, Nullable<bool> isDeleted)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var data_StartParameter = data_Start.HasValue ?
+                new ObjectParameter("Data_Start", data_Start) :
+                new ObjectParameter("Data_Start", typeof(System.DateTime));
+    
+            var fK_Create_MemberParameter = fK_Create_Member.HasValue ?
+                new ObjectParameter("FK_Create_Member", fK_Create_Member) :
+                new ObjectParameter("FK_Create_Member", typeof(int));
+    
+            var isDeletedParameter = isDeleted.HasValue ?
+                new ObjectParameter("IsDeleted", isDeleted) :
+                new ObjectParameter("IsDeleted", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Group_Insert", nameParameter, descriptionParameter, data_StartParameter, fK_Create_MemberParameter, isDeletedParameter);
+        }
+    
+        public virtual int Group_Update(Nullable<int> iD, string name, string description, Nullable<System.DateTime> data_Start, Nullable<int> fK_Create_Member, Nullable<bool> isDeleted)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var data_StartParameter = data_Start.HasValue ?
+                new ObjectParameter("Data_Start", data_Start) :
+                new ObjectParameter("Data_Start", typeof(System.DateTime));
+    
+            var fK_Create_MemberParameter = fK_Create_Member.HasValue ?
+                new ObjectParameter("FK_Create_Member", fK_Create_Member) :
+                new ObjectParameter("FK_Create_Member", typeof(int));
+    
+            var isDeletedParameter = isDeleted.HasValue ?
+                new ObjectParameter("IsDeleted", isDeleted) :
+                new ObjectParameter("IsDeleted", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Group_Update", iDParameter, nameParameter, descriptionParameter, data_StartParameter, fK_Create_MemberParameter, isDeletedParameter);
         }
     
         public virtual int Industry_Delete(Nullable<int> iD)
@@ -1649,6 +1809,36 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Like_GetByID_Result>("Like_GetByID", iDParameter);
         }
     
+        public virtual int Like_Insert(Nullable<int> fK_Post, Nullable<int> fK_Member)
+        {
+            var fK_PostParameter = fK_Post.HasValue ?
+                new ObjectParameter("FK_Post", fK_Post) :
+                new ObjectParameter("FK_Post", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Like_Insert", fK_PostParameter, fK_MemberParameter);
+        }
+    
+        public virtual int Like_Update(Nullable<int> iD, Nullable<int> fK_Post, Nullable<int> fK_Member)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var fK_PostParameter = fK_Post.HasValue ?
+                new ObjectParameter("FK_Post", fK_Post) :
+                new ObjectParameter("FK_Post", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Like_Update", iDParameter, fK_PostParameter, fK_MemberParameter);
+        }
+    
         public virtual int Links_Delete(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -1718,6 +1908,59 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Links_Update", iDParameter, fK_Member_SectionParameter, nameParameter, descriptionParameter, uRLParameter);
         }
     
+        public virtual int LookupSkill_Member_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LookupSkill_Member_Delete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Lookupskill_Member_GetAll_Result> Lookupskill_Member_GetAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Lookupskill_Member_GetAll_Result>("Lookupskill_Member_GetAll");
+        }
+    
+        public virtual ObjectResult<LookupSkill_Member_GetByID_Result> LookupSkill_Member_GetByID(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LookupSkill_Member_GetByID_Result>("LookupSkill_Member_GetByID", iDParameter);
+        }
+    
+        public virtual int LookupSkill_Member_Insert(Nullable<int> fK_LookupSkill, Nullable<int> fK_Member)
+        {
+            var fK_LookupSkillParameter = fK_LookupSkill.HasValue ?
+                new ObjectParameter("FK_LookupSkill", fK_LookupSkill) :
+                new ObjectParameter("FK_LookupSkill", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LookupSkill_Member_Insert", fK_LookupSkillParameter, fK_MemberParameter);
+        }
+    
+        public virtual int LookupSkill_Member_Update(Nullable<int> iD, Nullable<int> fK_LookupSkill, Nullable<int> fK_Member)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var fK_LookupSkillParameter = fK_LookupSkill.HasValue ?
+                new ObjectParameter("FK_LookupSkill", fK_LookupSkill) :
+                new ObjectParameter("FK_LookupSkill", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LookupSkill_Member_Update", iDParameter, fK_LookupSkillParameter, fK_MemberParameter);
+        }
+    
         public virtual int Member_Connection_Delete(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -1785,6 +2028,83 @@ namespace DAL
                 new ObjectParameter("ID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Member_Group_GetByID_Result>("Member_Group_GetByID", iDParameter);
+        }
+    
+        public virtual int Member_Insert(string fisrt_Name, string middle_Name, string last_Name, string mail, string headLine, string summary, string gender, string profile_Img, string cover_Img, Nullable<System.DateTime> date_Of_Birth, Nullable<System.DateTime> date_Joined, Nullable<int> zip_Code, Nullable<int> fK_Country, Nullable<int> fK_Country_Lookups, string profile_URL, Nullable<int> fK_Industry, Nullable<bool> isDeleted, Nullable<System.Guid> membership_ID)
+        {
+            var fisrt_NameParameter = fisrt_Name != null ?
+                new ObjectParameter("Fisrt_Name", fisrt_Name) :
+                new ObjectParameter("Fisrt_Name", typeof(string));
+    
+            var middle_NameParameter = middle_Name != null ?
+                new ObjectParameter("Middle_Name", middle_Name) :
+                new ObjectParameter("Middle_Name", typeof(string));
+    
+            var last_NameParameter = last_Name != null ?
+                new ObjectParameter("Last_Name", last_Name) :
+                new ObjectParameter("Last_Name", typeof(string));
+    
+            var mailParameter = mail != null ?
+                new ObjectParameter("Mail", mail) :
+                new ObjectParameter("Mail", typeof(string));
+    
+            var headLineParameter = headLine != null ?
+                new ObjectParameter("HeadLine", headLine) :
+                new ObjectParameter("HeadLine", typeof(string));
+    
+            var summaryParameter = summary != null ?
+                new ObjectParameter("Summary", summary) :
+                new ObjectParameter("Summary", typeof(string));
+    
+            var genderParameter = gender != null ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(string));
+    
+            var profile_ImgParameter = profile_Img != null ?
+                new ObjectParameter("Profile_Img", profile_Img) :
+                new ObjectParameter("Profile_Img", typeof(string));
+    
+            var cover_ImgParameter = cover_Img != null ?
+                new ObjectParameter("Cover_Img", cover_Img) :
+                new ObjectParameter("Cover_Img", typeof(string));
+    
+            var date_Of_BirthParameter = date_Of_Birth.HasValue ?
+                new ObjectParameter("Date_Of_Birth", date_Of_Birth) :
+                new ObjectParameter("Date_Of_Birth", typeof(System.DateTime));
+    
+            var date_JoinedParameter = date_Joined.HasValue ?
+                new ObjectParameter("Date_Joined", date_Joined) :
+                new ObjectParameter("Date_Joined", typeof(System.DateTime));
+    
+            var zip_CodeParameter = zip_Code.HasValue ?
+                new ObjectParameter("Zip_Code", zip_Code) :
+                new ObjectParameter("Zip_Code", typeof(int));
+    
+            var fK_CountryParameter = fK_Country.HasValue ?
+                new ObjectParameter("FK_Country", fK_Country) :
+                new ObjectParameter("FK_Country", typeof(int));
+    
+            var fK_Country_LookupsParameter = fK_Country_Lookups.HasValue ?
+                new ObjectParameter("FK_Country_Lookups", fK_Country_Lookups) :
+                new ObjectParameter("FK_Country_Lookups", typeof(int));
+    
+            var profile_URLParameter = profile_URL != null ?
+                new ObjectParameter("Profile_URL", profile_URL) :
+                new ObjectParameter("Profile_URL", typeof(string));
+    
+            var fK_IndustryParameter = fK_Industry.HasValue ?
+                new ObjectParameter("FK_Industry", fK_Industry) :
+                new ObjectParameter("FK_Industry", typeof(int));
+    
+            var isDeletedParameter = isDeleted.HasValue ?
+                new ObjectParameter("IsDeleted", isDeleted) :
+                new ObjectParameter("IsDeleted", typeof(bool));
+    
+            var membership_IDParameter = membership_ID.HasValue ?
+                new ObjectParameter("Membership_ID", membership_ID) :
+                new ObjectParameter("Membership_ID", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Member_Insert", fisrt_NameParameter, middle_NameParameter, last_NameParameter, mailParameter, headLineParameter, summaryParameter, genderParameter, profile_ImgParameter, cover_ImgParameter, date_Of_BirthParameter, date_JoinedParameter, zip_CodeParameter, fK_CountryParameter, fK_Country_LookupsParameter, profile_URLParameter, fK_IndustryParameter, isDeletedParameter, membership_IDParameter);
         }
     
         public virtual int Member_Update(Nullable<int> iD, string fisrt_Name, string middle_Name, string last_Name, string mail, string headLine, string summary, string gender, string profile_Img, string cover_Img, Nullable<System.DateTime> date_Of_Birth, Nullable<System.DateTime> date_Joined, Nullable<int> zip_Code, Nullable<int> fK_Country, string profile_URL, Nullable<int> fK_Industry, Nullable<bool> isDeleted, Nullable<System.Guid> membership_ID)
@@ -2080,6 +2400,40 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posts_GetByID_Result>("Posts_GetByID", iDParameter);
         }
     
+        public virtual int Posts_Insert(string content, Nullable<int> fK_Member, Nullable<System.DateTime> date)
+        {
+            var contentParameter = content != null ?
+                new ObjectParameter("Content", content) :
+                new ObjectParameter("Content", typeof(string));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Posts_Insert", contentParameter, fK_MemberParameter, dateParameter);
+        }
+    
+        public virtual int Posts_Update(Nullable<int> iD, string content, Nullable<int> fK_Member)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var contentParameter = content != null ?
+                new ObjectParameter("Content", content) :
+                new ObjectParameter("Content", typeof(string));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Posts_Update", iDParameter, contentParameter, fK_MemberParameter);
+        }
+    
         public virtual int School_Delete(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -2173,6 +2527,45 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("School_Update", iDParameter, nameParameter, descriptionParameter, logo_ImgParameter, cover_ImageParameter, site_UrlParameter, date_StartParameter, isDeletedParameter);
         }
     
+        public virtual ObjectResult<Skill_Member_GetByID_Result> Skill_Member_GetByID(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Skill_Member_GetByID_Result>("Skill_Member_GetByID", iDParameter);
+        }
+    
+        public virtual int Skill_Member_Insert(Nullable<int> fK_Skill, Nullable<int> fK_Member)
+        {
+            var fK_SkillParameter = fK_Skill.HasValue ?
+                new ObjectParameter("FK_Skill", fK_Skill) :
+                new ObjectParameter("FK_Skill", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skill_Member_Insert", fK_SkillParameter, fK_MemberParameter);
+        }
+    
+        public virtual int Skill_Member_Update(Nullable<int> iD, Nullable<int> fK_Skill, Nullable<int> fK_Member)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var fK_SkillParameter = fK_Skill.HasValue ?
+                new ObjectParameter("FK_Skill", fK_Skill) :
+                new ObjectParameter("FK_Skill", typeof(int));
+    
+            var fK_MemberParameter = fK_Member.HasValue ?
+                new ObjectParameter("FK_Member", fK_Member) :
+                new ObjectParameter("FK_Member", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skill_Member_Update", iDParameter, fK_SkillParameter, fK_MemberParameter);
+        }
+    
         public virtual int Skills_Delete(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -2196,17 +2589,13 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Skills_GetByID_Result>("Skills_GetByID", iDParameter);
         }
     
-        public virtual int Skills_Insert(string name, Nullable<int> fK_Member)
+        public virtual int Skills_Insert(string name)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Insert", nameParameter, fK_MemberParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Insert", nameParameter);
         }
     
         public virtual int Skills_Lookups_Delete(Nullable<int> iD)
@@ -2232,20 +2621,16 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Skills_Lookups_GetByID_Result>("Skills_Lookups_GetByID", iDParameter);
         }
     
-        public virtual int Skills_Lookups_Insert(string name, Nullable<int> fK_Member)
+        public virtual int Skills_Lookups_Insert(string name)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Lookups_Insert", nameParameter, fK_MemberParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Lookups_Insert", nameParameter);
         }
     
-        public virtual int Skills_Lookups_Update(Nullable<int> iD, string name, Nullable<int> fK_Member)
+        public virtual int Skills_Lookups_Update(Nullable<int> iD, string name)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -2255,14 +2640,24 @@ namespace DAL
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Lookups_Update", iDParameter, nameParameter, fK_MemberParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Lookups_Update", iDParameter, nameParameter);
         }
     
-        public virtual int Skills_Update(Nullable<int> iD, string name, Nullable<int> fK_Member)
+        public virtual int Skills_Member_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Member_Delete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Skills_MemberGetAll_Result> Skills_MemberGetAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Skills_MemberGetAll_Result>("Skills_MemberGetAll");
+        }
+    
+        public virtual int Skills_Update(Nullable<int> iD, string name)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -2272,11 +2667,119 @@ namespace DAL
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Update", iDParameter, nameParameter);
+        }
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skills_Update", iDParameter, nameParameter, fK_MemberParameter);
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetConnectionPosts_Result> SP_GetConnectionPosts(Nullable<int> memberid)
+        {
+            var memberidParameter = memberid.HasValue ?
+                new ObjectParameter("Memberid", memberid) :
+                new ObjectParameter("Memberid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetConnectionPosts_Result>("SP_GetConnectionPosts", memberidParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
         public virtual int Upload_Media_Delete(Nullable<int> iD)
@@ -2369,300 +2872,6 @@ namespace DAL
                 new ObjectParameter("ID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Volunteer_Experience_GetByID_Result>("Volunteer_Experience_GetByID", iDParameter);
-        }
-    
-        public virtual int Member_Insert(string fisrt_Name, string middle_Name, string last_Name, string mail, string headLine, string summary, string gender, string profile_Img, string cover_Img, Nullable<System.DateTime> date_Of_Birth, Nullable<System.DateTime> date_Joined, Nullable<int> zip_Code, Nullable<int> fK_Country, Nullable<int> fK_Country_Lookups, string profile_URL, Nullable<int> fK_Industry, Nullable<bool> isDeleted, Nullable<System.Guid> membership_ID)
-        {
-            var fisrt_NameParameter = fisrt_Name != null ?
-                new ObjectParameter("Fisrt_Name", fisrt_Name) :
-                new ObjectParameter("Fisrt_Name", typeof(string));
-    
-            var middle_NameParameter = middle_Name != null ?
-                new ObjectParameter("Middle_Name", middle_Name) :
-                new ObjectParameter("Middle_Name", typeof(string));
-    
-            var last_NameParameter = last_Name != null ?
-                new ObjectParameter("Last_Name", last_Name) :
-                new ObjectParameter("Last_Name", typeof(string));
-    
-            var mailParameter = mail != null ?
-                new ObjectParameter("Mail", mail) :
-                new ObjectParameter("Mail", typeof(string));
-    
-            var headLineParameter = headLine != null ?
-                new ObjectParameter("HeadLine", headLine) :
-                new ObjectParameter("HeadLine", typeof(string));
-    
-            var summaryParameter = summary != null ?
-                new ObjectParameter("Summary", summary) :
-                new ObjectParameter("Summary", typeof(string));
-    
-            var genderParameter = gender != null ?
-                new ObjectParameter("Gender", gender) :
-                new ObjectParameter("Gender", typeof(string));
-    
-            var profile_ImgParameter = profile_Img != null ?
-                new ObjectParameter("Profile_Img", profile_Img) :
-                new ObjectParameter("Profile_Img", typeof(string));
-    
-            var cover_ImgParameter = cover_Img != null ?
-                new ObjectParameter("Cover_Img", cover_Img) :
-                new ObjectParameter("Cover_Img", typeof(string));
-    
-            var date_Of_BirthParameter = date_Of_Birth.HasValue ?
-                new ObjectParameter("Date_Of_Birth", date_Of_Birth) :
-                new ObjectParameter("Date_Of_Birth", typeof(System.DateTime));
-    
-            var date_JoinedParameter = date_Joined.HasValue ?
-                new ObjectParameter("Date_Joined", date_Joined) :
-                new ObjectParameter("Date_Joined", typeof(System.DateTime));
-    
-            var zip_CodeParameter = zip_Code.HasValue ?
-                new ObjectParameter("Zip_Code", zip_Code) :
-                new ObjectParameter("Zip_Code", typeof(int));
-    
-            var fK_CountryParameter = fK_Country.HasValue ?
-                new ObjectParameter("FK_Country", fK_Country) :
-                new ObjectParameter("FK_Country", typeof(int));
-    
-            var fK_Country_LookupsParameter = fK_Country_Lookups.HasValue ?
-                new ObjectParameter("FK_Country_Lookups", fK_Country_Lookups) :
-                new ObjectParameter("FK_Country_Lookups", typeof(int));
-    
-            var profile_URLParameter = profile_URL != null ?
-                new ObjectParameter("Profile_URL", profile_URL) :
-                new ObjectParameter("Profile_URL", typeof(string));
-    
-            var fK_IndustryParameter = fK_Industry.HasValue ?
-                new ObjectParameter("FK_Industry", fK_Industry) :
-                new ObjectParameter("FK_Industry", typeof(int));
-    
-            var isDeletedParameter = isDeleted.HasValue ?
-                new ObjectParameter("IsDeleted", isDeleted) :
-                new ObjectParameter("IsDeleted", typeof(bool));
-    
-            var membership_IDParameter = membership_ID.HasValue ?
-                new ObjectParameter("Membership_ID", membership_ID) :
-                new ObjectParameter("Membership_ID", typeof(System.Guid));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Member_Insert", fisrt_NameParameter, middle_NameParameter, last_NameParameter, mailParameter, headLineParameter, summaryParameter, genderParameter, profile_ImgParameter, cover_ImgParameter, date_Of_BirthParameter, date_JoinedParameter, zip_CodeParameter, fK_CountryParameter, fK_Country_LookupsParameter, profile_URLParameter, fK_IndustryParameter, isDeletedParameter, membership_IDParameter);
-        }
-    
-        public virtual int Comment_Insert(string content, Nullable<int> fK_Post, Nullable<int> fK_MemberWrite)
-        {
-            var contentParameter = content != null ?
-                new ObjectParameter("Content", content) :
-                new ObjectParameter("Content", typeof(string));
-    
-            var fK_PostParameter = fK_Post.HasValue ?
-                new ObjectParameter("FK_Post", fK_Post) :
-                new ObjectParameter("FK_Post", typeof(int));
-    
-            var fK_MemberWriteParameter = fK_MemberWrite.HasValue ?
-                new ObjectParameter("FK_MemberWrite", fK_MemberWrite) :
-                new ObjectParameter("FK_MemberWrite", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Comment_Insert", contentParameter, fK_PostParameter, fK_MemberWriteParameter);
-        }
-    
-        public virtual int Education_Insert(Nullable<int> fK_School, string degree, string fieldOfStudy, string grade, string activities, Nullable<int> from_Year, Nullable<int> to_Year, string description, Nullable<int> fK_Member)
-        {
-            var fK_SchoolParameter = fK_School.HasValue ?
-                new ObjectParameter("FK_School", fK_School) :
-                new ObjectParameter("FK_School", typeof(int));
-    
-            var degreeParameter = degree != null ?
-                new ObjectParameter("Degree", degree) :
-                new ObjectParameter("Degree", typeof(string));
-    
-            var fieldOfStudyParameter = fieldOfStudy != null ?
-                new ObjectParameter("FieldOfStudy", fieldOfStudy) :
-                new ObjectParameter("FieldOfStudy", typeof(string));
-    
-            var gradeParameter = grade != null ?
-                new ObjectParameter("Grade", grade) :
-                new ObjectParameter("Grade", typeof(string));
-    
-            var activitiesParameter = activities != null ?
-                new ObjectParameter("Activities", activities) :
-                new ObjectParameter("Activities", typeof(string));
-    
-            var from_YearParameter = from_Year.HasValue ?
-                new ObjectParameter("From_Year", from_Year) :
-                new ObjectParameter("From_Year", typeof(int));
-    
-            var to_YearParameter = to_Year.HasValue ?
-                new ObjectParameter("To_Year", to_Year) :
-                new ObjectParameter("To_Year", typeof(int));
-    
-            var descriptionParameter = description != null ?
-                new ObjectParameter("Description", description) :
-                new ObjectParameter("Description", typeof(string));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Insert", fK_SchoolParameter, degreeParameter, fieldOfStudyParameter, gradeParameter, activitiesParameter, from_YearParameter, to_YearParameter, descriptionParameter, fK_MemberParameter);
-        }
-    
-        public virtual int Education_Update(Nullable<int> iD, Nullable<int> fK_School, string degree, string fieldOfStudy, string grade, string activities, Nullable<int> from_Year, Nullable<int> to_Year, string description, Nullable<int> fK_Member)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            var fK_SchoolParameter = fK_School.HasValue ?
-                new ObjectParameter("FK_School", fK_School) :
-                new ObjectParameter("FK_School", typeof(int));
-    
-            var degreeParameter = degree != null ?
-                new ObjectParameter("Degree", degree) :
-                new ObjectParameter("Degree", typeof(string));
-    
-            var fieldOfStudyParameter = fieldOfStudy != null ?
-                new ObjectParameter("FieldOfStudy", fieldOfStudy) :
-                new ObjectParameter("FieldOfStudy", typeof(string));
-    
-            var gradeParameter = grade != null ?
-                new ObjectParameter("Grade", grade) :
-                new ObjectParameter("Grade", typeof(string));
-    
-            var activitiesParameter = activities != null ?
-                new ObjectParameter("Activities", activities) :
-                new ObjectParameter("Activities", typeof(string));
-    
-            var from_YearParameter = from_Year.HasValue ?
-                new ObjectParameter("From_Year", from_Year) :
-                new ObjectParameter("From_Year", typeof(int));
-    
-            var to_YearParameter = to_Year.HasValue ?
-                new ObjectParameter("To_Year", to_Year) :
-                new ObjectParameter("To_Year", typeof(int));
-    
-            var descriptionParameter = description != null ?
-                new ObjectParameter("Description", description) :
-                new ObjectParameter("Description", typeof(string));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Update", iDParameter, fK_SchoolParameter, degreeParameter, fieldOfStudyParameter, gradeParameter, activitiesParameter, from_YearParameter, to_YearParameter, descriptionParameter, fK_MemberParameter);
-        }
-    
-        public virtual int Group_Insert(string name, string description, Nullable<System.DateTime> data_Start, Nullable<int> fK_Create_Member, Nullable<bool> isDeleted)
-        {
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            var descriptionParameter = description != null ?
-                new ObjectParameter("Description", description) :
-                new ObjectParameter("Description", typeof(string));
-    
-            var data_StartParameter = data_Start.HasValue ?
-                new ObjectParameter("Data_Start", data_Start) :
-                new ObjectParameter("Data_Start", typeof(System.DateTime));
-    
-            var fK_Create_MemberParameter = fK_Create_Member.HasValue ?
-                new ObjectParameter("FK_Create_Member", fK_Create_Member) :
-                new ObjectParameter("FK_Create_Member", typeof(int));
-    
-            var isDeletedParameter = isDeleted.HasValue ?
-                new ObjectParameter("IsDeleted", isDeleted) :
-                new ObjectParameter("IsDeleted", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Group_Insert", nameParameter, descriptionParameter, data_StartParameter, fK_Create_MemberParameter, isDeletedParameter);
-        }
-    
-        public virtual int Group_Update(Nullable<int> iD, string name, string description, Nullable<System.DateTime> data_Start, Nullable<int> fK_Create_Member, Nullable<bool> isDeleted)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            var descriptionParameter = description != null ?
-                new ObjectParameter("Description", description) :
-                new ObjectParameter("Description", typeof(string));
-    
-            var data_StartParameter = data_Start.HasValue ?
-                new ObjectParameter("Data_Start", data_Start) :
-                new ObjectParameter("Data_Start", typeof(System.DateTime));
-    
-            var fK_Create_MemberParameter = fK_Create_Member.HasValue ?
-                new ObjectParameter("FK_Create_Member", fK_Create_Member) :
-                new ObjectParameter("FK_Create_Member", typeof(int));
-    
-            var isDeletedParameter = isDeleted.HasValue ?
-                new ObjectParameter("IsDeleted", isDeleted) :
-                new ObjectParameter("IsDeleted", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Group_Update", iDParameter, nameParameter, descriptionParameter, data_StartParameter, fK_Create_MemberParameter, isDeletedParameter);
-        }
-    
-        public virtual int Like_Insert(Nullable<int> fK_Post, Nullable<int> fK_Member)
-        {
-            var fK_PostParameter = fK_Post.HasValue ?
-                new ObjectParameter("FK_Post", fK_Post) :
-                new ObjectParameter("FK_Post", typeof(int));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Like_Insert", fK_PostParameter, fK_MemberParameter);
-        }
-    
-        public virtual int Like_Update(Nullable<int> iD, Nullable<int> fK_Post, Nullable<int> fK_Member)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            var fK_PostParameter = fK_Post.HasValue ?
-                new ObjectParameter("FK_Post", fK_Post) :
-                new ObjectParameter("FK_Post", typeof(int));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Like_Update", iDParameter, fK_PostParameter, fK_MemberParameter);
-        }
-    
-        public virtual int Posts_Insert(string content, Nullable<int> fK_Member)
-        {
-            var contentParameter = content != null ?
-                new ObjectParameter("Content", content) :
-                new ObjectParameter("Content", typeof(string));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Posts_Insert", contentParameter, fK_MemberParameter);
-        }
-    
-        public virtual int Posts_Update(Nullable<int> iD, string content, Nullable<int> fK_Member)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            var contentParameter = content != null ?
-                new ObjectParameter("Content", content) :
-                new ObjectParameter("Content", typeof(string));
-    
-            var fK_MemberParameter = fK_Member.HasValue ?
-                new ObjectParameter("FK_Member", fK_Member) :
-                new ObjectParameter("FK_Member", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Posts_Update", iDParameter, contentParameter, fK_MemberParameter);
         }
     
         public virtual int Work_Experience_Delete(Nullable<int> iD)
@@ -2772,15 +2981,6 @@ namespace DAL
                 new ObjectParameter("FK_Member", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Work_Experience_Update", iDParameter, jop_TitleParameter, fK_OrgParameter, locationParameter, from_YearParameter, from_MonthParameter, to_YearParameter, to_MonthParameter, descriptionParameter, fK_MemberParameter);
-        }
-    
-        public virtual ObjectResult<SP_GetConnectionPosts_Result> SP_GetConnectionPosts(Nullable<int> memberid)
-        {
-            var memberidParameter = memberid.HasValue ?
-                new ObjectParameter("Memberid", memberid) :
-                new ObjectParameter("Memberid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetConnectionPosts_Result>("SP_GetConnectionPosts", memberidParameter);
         }
     }
 }

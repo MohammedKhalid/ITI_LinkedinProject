@@ -11,9 +11,10 @@ namespace DAL
 {
     using System;
     
-    public partial class Skills_Lookups_GetAll_Result
+    public partial class Skill_Member_GetByID_Result
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public int FK_Skill { get; set; }
+        public int FK_Member { get; set; }
     }
 }

@@ -25,13 +25,13 @@ namespace DAL
             this.Groups = new HashSet<Group>();
             this.Langauges = new HashSet<Langauge>();
             this.Likes = new HashSet<Like>();
+            this.LookupSkill_Member = new HashSet<LookupSkill_Member>();
             this.Member_Connection = new HashSet<Member_Connection>();
             this.Member_Connection1 = new HashSet<Member_Connection>();
             this.Member_Group = new HashSet<Member_Group>();
             this.Organization_Follower = new HashSet<Organization_Follower>();
             this.Posts = new HashSet<Post>();
-            this.Skills_Lookups = new HashSet<Skills_Lookups>();
-            this.Skills = new HashSet<Skill>();
+            this.Skill_Member = new HashSet<Skill_Member>();
             this.Volunteer_Experience = new HashSet<Volunteer_Experience>();
             this.Work_Experience = new HashSet<Work_Experience>();
         }
@@ -76,6 +76,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LookupSkill_Member> LookupSkill_Member { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Connection> Member_Connection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member_Connection> Member_Connection1 { get; set; }
@@ -86,9 +88,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Skills_Lookups> Skills_Lookups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<Skill_Member> Skill_Member { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Volunteer_Experience> Volunteer_Experience { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

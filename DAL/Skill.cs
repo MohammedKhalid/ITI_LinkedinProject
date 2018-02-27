@@ -14,10 +14,16 @@ namespace DAL
     
     public partial class Skill
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Skill()
+        {
+            this.Skill_Member = new HashSet<Skill_Member>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> FK_Member { get; set; }
     
-        public virtual Member Member { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Skill_Member> Skill_Member { get; set; }
     }
 }

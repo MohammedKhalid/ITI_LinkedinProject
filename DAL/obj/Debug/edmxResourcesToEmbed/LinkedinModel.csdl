@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LinkedInModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="LinkedInNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="aspnet_Applications">
     <Key>
       <PropertyRef Name="ApplicationId" />
@@ -8,10 +8,10 @@
     <Property Name="LoweredApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ApplicationId" Type="Guid" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__Appli__7D0E9093" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
-    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pa__Appli__7EF6D905" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-    <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Ro__Appli__03BB8E22" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
-    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Us__Appli__04AFB25B" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__Appli__693CA210" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pa__Appli__6B24EA82" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Ro__Appli__6FE99F9F" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Us__Appli__70DDC3D8" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -38,8 +38,8 @@
     <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
     <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Me__Appli__7D0E9093" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
-    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Me__UserI__7E02B4CC" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Me__Appli__693CA210" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Me__UserI__6A30C649" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_Paths">
     <Key>
@@ -49,9 +49,9 @@
     <Property Name="PathId" Type="Guid" Nullable="false" />
     <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LoweredPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Pa__Appli__7EF6D905" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
-    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__PathI__00DF2177" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
-    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="Self.FK__aspnet_Pe__PathI__7FEAFD3E" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Pa__Appli__6B24EA82" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="Self.FK__aspnet_Pe__PathI__6C190EBB" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__PathI__6D0D32F4" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
   </EntityType>
   <EntityType Name="aspnet_PersonalizationAllUsers">
     <Key>
@@ -60,7 +60,7 @@
     <Property Name="PathId" Type="Guid" Nullable="false" />
     <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__7FEAFD3E" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__6C190EBB" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
   </EntityType>
   <EntityType Name="aspnet_PersonalizationPerUser">
     <Key>
@@ -71,8 +71,8 @@
     <Property Name="UserId" Type="Guid" />
     <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__00DF2177" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
-    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pe__UserI__01D345B0" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__6D0D32F4" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pe__UserI__6E01572D" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_Profile">
     <Key>
@@ -83,7 +83,7 @@
     <Property Name="PropertyValuesString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PropertyValuesBinary" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pr__UserI__02C769E9" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pr__UserI__6EF57B66" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_Roles">
     <Key>
@@ -94,7 +94,7 @@
     <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LoweredRoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Ro__Appli__03BB8E22" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Ro__Appli__6FE99F9F" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
     <NavigationProperty Name="aspnet_Users" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_SchemaVersions">
@@ -117,10 +117,10 @@
     <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
     <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
     <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Us__Appli__04AFB25B" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
-    <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__UserI__7E02B4CC" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
-    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__UserI__01D345B0" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
-    <NavigationProperty Name="aspnet_Profile" Relationship="Self.FK__aspnet_Pr__UserI__02C769E9" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Us__Appli__70DDC3D8" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__UserI__6A30C649" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__UserI__6E01572D" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="Self.FK__aspnet_Pr__UserI__6EF57B66" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
     <NavigationProperty Name="aspnet_Roles" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
   </EntityType>
   <EntityType Name="aspnet_WebEvent_Events">
@@ -156,9 +156,26 @@
     <Property Name="End_Year" Type="Int32" />
     <Property Name="End_Month" Type="Int32" />
     <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Certification_Member" FromRole="Certification" ToRole="Member" />
     <NavigationProperty Name="Organization" Relationship="Self.FK_Certification_Organization" FromRole="Certification" ToRole="Organization" />
+  </EntityType>
+  <EntityType Name="Certification_Lookups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Org" Type="Int32" />
+    <Property Name="License_Number" Type="Int32" />
+    <Property Name="Start_Year" Type="Int32" />
+    <Property Name="Start_Month" Type="Int32" />
+    <Property Name="End_Year" Type="Int32" />
+    <Property Name="End_Month" Type="Int32" />
+    <Property Name="URL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Member" Type="Int32" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_Certification_Lookups_Member" FromRole="Certification_Lookups" ToRole="Member" />
+    <NavigationProperty Name="Organization" Relationship="Self.FK_Certification_Lookups_Organization" FromRole="Certification_Lookups" ToRole="Organization" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>
@@ -167,7 +184,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FK_Post" Type="Int32" />
-    <Property Name="FK_MemberWrite" Type="Guid" />
+    <Property Name="FK_MemberWrite" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Comment_Member" FromRole="Comment" ToRole="Member" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Posts" FromRole="Comment" ToRole="Posts" />
   </EntityType>
@@ -179,6 +196,14 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Members" Relationship="Self.FK_Member_Country" FromRole="Country" ToRole="Member" />
   </EntityType>
+  <EntityType Name="Country_Lookups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Member_Country_Lookups" FromRole="Country_Lookups" ToRole="Member" />
+  </EntityType>
   <EntityType Name="Course">
     <Key>
       <PropertyRef Name="ID" />
@@ -187,7 +212,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Number" Type="Int32" />
     <Property Name="FK_Org" Type="Int32" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Course_Member" FromRole="Course" ToRole="Member" />
     <NavigationProperty Name="Organization" Relationship="Self.FK_Course_Organization" FromRole="Course" ToRole="Organization" />
   </EntityType>
@@ -204,7 +229,7 @@
     <Property Name="From_Year" Type="Int32" />
     <Property Name="To_Year" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Education_Member" FromRole="Education" ToRole="Member" />
     <NavigationProperty Name="School" Relationship="Self.FK_Education_School" FromRole="Education" ToRole="School" />
     <NavigationProperty Name="Links" Relationship="Self.FK_Links_Education" FromRole="Education" ToRole="Links" />
@@ -218,7 +243,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Data_Start" Type="DateTime" Precision="0" />
-    <Property Name="FK_Create_Member" Type="Guid" />
+    <Property Name="FK_Create_Member" Type="Int32" />
     <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Group_Member" FromRole="Group" ToRole="Member" />
     <NavigationProperty Name="Member_Group" Relationship="Self.FK_Member_Group_Group" FromRole="Group" ToRole="Member_Group" />
@@ -239,7 +264,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Lang_Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Langauge_Member" FromRole="Langauge" ToRole="Member" />
   </EntityType>
   <EntityType Name="Like">
@@ -248,7 +273,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FK_Post" Type="Int32" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Like_Member" FromRole="Like" ToRole="Member" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Like_Posts" FromRole="Like" ToRole="Posts" />
   </EntityType>
@@ -264,11 +289,21 @@
     <NavigationProperty Name="Education" Relationship="Self.FK_Links_Education" FromRole="Links" ToRole="Education" />
     <NavigationProperty Name="Work_Experience" Relationship="Self.FK_Links_Work_Experience" FromRole="Links" ToRole="Work_Experience" />
   </EntityType>
+  <EntityType Name="LookupSkill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_LookupSkill" Type="Int32" Nullable="false" />
+    <Property Name="FK_Member" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_LookupSkill_Member_Member" FromRole="LookupSkill_Member" ToRole="Member" />
+    <NavigationProperty Name="Skills_Lookups" Relationship="Self.FK_LookupSkill_Member_Skills_Lookups" FromRole="LookupSkill_Member" ToRole="Skills_Lookups" />
+  </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Fisrt_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -281,25 +316,30 @@
     <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
     <Property Name="Date_Joined" Type="DateTime" Precision="0" />
     <Property Name="Zip_Code" Type="Int32" />
+    <Property Name="FK_Country_Lookups" Type="Int32" />
     <Property Name="FK_Country" Type="Int32" />
     <Property Name="Profile_URL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FK_Industry" Type="Int32" />
     <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Membership_ID" Type="Guid" Nullable="false" />
     <NavigationProperty Name="Certifications" Relationship="Self.FK_Certification_Member" FromRole="Member" ToRole="Certification" />
+    <NavigationProperty Name="Certification_Lookups" Relationship="Self.FK_Certification_Lookups_Member" FromRole="Member" ToRole="Certification_Lookups" />
     <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Member" FromRole="Member" ToRole="Comment" />
     <NavigationProperty Name="Country" Relationship="Self.FK_Member_Country" FromRole="Member" ToRole="Country" />
+    <NavigationProperty Name="Country_Lookups" Relationship="Self.FK_Member_Country_Lookups" FromRole="Member" ToRole="Country_Lookups" />
     <NavigationProperty Name="Courses" Relationship="Self.FK_Course_Member" FromRole="Member" ToRole="Course" />
     <NavigationProperty Name="Educations" Relationship="Self.FK_Education_Member" FromRole="Member" ToRole="Education" />
     <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Member" FromRole="Member" ToRole="Group" />
     <NavigationProperty Name="Industry" Relationship="Self.FK_Member_Industry" FromRole="Member" ToRole="Industry" />
     <NavigationProperty Name="Langauges" Relationship="Self.FK_Langauge_Member" FromRole="Member" ToRole="Langauge" />
     <NavigationProperty Name="Likes" Relationship="Self.FK_Like_Member" FromRole="Member" ToRole="Like" />
+    <NavigationProperty Name="LookupSkill_Member" Relationship="Self.FK_LookupSkill_Member_Member" FromRole="Member" ToRole="LookupSkill_Member" />
     <NavigationProperty Name="Member_Connection" Relationship="Self.FK_Member_Connection_Member" FromRole="Member" ToRole="Member_Connection" />
     <NavigationProperty Name="Member_Connection1" Relationship="Self.FK_Member_Connection_Member1" FromRole="Member" ToRole="Member_Connection" />
     <NavigationProperty Name="Member_Group" Relationship="Self.FK_Member_Group_Member" FromRole="Member" ToRole="Member_Group" />
     <NavigationProperty Name="Organization_Follower" Relationship="Self.FK_Organization_Follower_Member" FromRole="Member" ToRole="Organization_Follower" />
     <NavigationProperty Name="Posts" Relationship="Self.FK_Posts_Member" FromRole="Member" ToRole="Posts" />
-    <NavigationProperty Name="Skills" Relationship="Self.FK_Skills_Member" FromRole="Member" ToRole="Skills" />
+    <NavigationProperty Name="Skill_Member" Relationship="Self.FK_Skill_Member_Member" FromRole="Member" ToRole="Skill_Member" />
     <NavigationProperty Name="Volunteer_Experience" Relationship="Self.FK_Volunteer_Experience_Member" FromRole="Member" ToRole="Volunteer_Experience" />
     <NavigationProperty Name="Work_Experience" Relationship="Self.FK_Work_Experience_Member" FromRole="Member" ToRole="Work_Experience" />
   </EntityType>
@@ -308,8 +348,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FK_Member" Type="Guid" />
-    <Property Name="FK_Connect_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
+    <Property Name="FK_Connect_Member" Type="Int32" />
     <Property Name="Date_Start" Type="DateTime" Precision="0" />
     <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Member_Connection_Member" FromRole="Member_Connection" ToRole="Member" />
@@ -320,7 +360,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <Property Name="FK_Group" Type="Int32" />
     <Property Name="Date_Join" Type="DateTime" Precision="0" />
     <Property Name="IsDeleted" Type="Boolean" />
@@ -343,6 +383,7 @@
     <Property Name="FK_Industry" Type="Int32" />
     <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="Certifications" Relationship="Self.FK_Certification_Organization" FromRole="Organization" ToRole="Certification" />
+    <NavigationProperty Name="Certification_Lookups" Relationship="Self.FK_Certification_Lookups_Organization" FromRole="Organization" ToRole="Certification_Lookups" />
     <NavigationProperty Name="Courses" Relationship="Self.FK_Course_Organization" FromRole="Organization" ToRole="Course" />
     <NavigationProperty Name="Industry" Relationship="Self.FK_Organization_Industry" FromRole="Organization" ToRole="Industry" />
     <NavigationProperty Name="Organization_Follower" Relationship="Self.FK_Organization_Follower_Organization" FromRole="Organization" ToRole="Organization_Follower" />
@@ -355,7 +396,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FK_Organization" Type="Int32" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Organization_Follower_Member" FromRole="Organization_Follower" ToRole="Member" />
     <NavigationProperty Name="Organization" Relationship="Self.FK_Organization_Follower_Organization" FromRole="Organization_Follower" ToRole="Organization" />
   </EntityType>
@@ -374,7 +415,8 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Posts" FromRole="Posts" ToRole="Comment" />
     <NavigationProperty Name="Likes" Relationship="Self.FK_Like_Posts" FromRole="Posts" ToRole="Like" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Posts_Member" FromRole="Posts" ToRole="Member" />
@@ -393,14 +435,41 @@
     <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="Educations" Relationship="Self.FK_Education_School" FromRole="School" ToRole="Education" />
   </EntityType>
+  <EntityType Name="Skill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Skill" Type="Int32" Nullable="false" />
+    <Property Name="FK_Member" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_Skill_Member_Member" FromRole="Skill_Member" ToRole="Member" />
+    <NavigationProperty Name="Skill" Relationship="Self.FK_Skill_Member_Skills" FromRole="Skill_Member" ToRole="Skills" />
+  </EntityType>
   <EntityType Name="Skill">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Member" Type="Guid" />
-    <NavigationProperty Name="Member" Relationship="Self.FK_Skills_Member" FromRole="Skills" ToRole="Member" />
+    <NavigationProperty Name="Skill_Member" Relationship="Self.FK_Skill_Member_Skills" FromRole="Skills" ToRole="Skill_Member" />
+  </EntityType>
+  <EntityType Name="Skills_Lookups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LookupSkill_Member" Relationship="Self.FK_LookupSkill_Member_Skills_Lookups" FromRole="Skills_Lookups" ToRole="LookupSkill_Member" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Upload_Media">
     <Key>
@@ -427,7 +496,7 @@
     <Property Name="End_Year" Type="Int32" />
     <Property Name="End_Month" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Volunteer_Experience_Member" FromRole="Volunteer_Experience" ToRole="Member" />
     <NavigationProperty Name="Organization" Relationship="Self.FK_Volunteer_Experience_Organization" FromRole="Volunteer_Experience" ToRole="Organization" />
   </EntityType>
@@ -444,12 +513,12 @@
     <Property Name="To_Year" Type="Int32" />
     <Property Name="To_Month" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="FK_Member" Type="Guid" />
+    <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Links" Relationship="Self.FK_Links_Work_Experience" FromRole="Work_Experience" ToRole="Links" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Work_Experience_Member" FromRole="Work_Experience" ToRole="Member" />
     <NavigationProperty Name="Upload_Media" Relationship="Self.FK_Upload_Media_Work_Experience" FromRole="Work_Experience" ToRole="Upload_Media" />
   </EntityType>
-  <Association Name="FK__aspnet_Me__Appli__7D0E9093">
+  <Association Name="FK__aspnet_Me__Appli__693CA210">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
     <ReferentialConstraint>
@@ -461,7 +530,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pa__Appli__7EF6D905">
+  <Association Name="FK__aspnet_Pa__Appli__6B24EA82">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
     <ReferentialConstraint>
@@ -473,7 +542,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Ro__Appli__03BB8E22">
+  <Association Name="FK__aspnet_Ro__Appli__6FE99F9F">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -485,7 +554,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Us__Appli__04AFB25B">
+  <Association Name="FK__aspnet_Us__Appli__70DDC3D8">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
     <ReferentialConstraint>
@@ -497,7 +566,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Me__UserI__7E02B4CC">
+  <Association Name="FK__aspnet_Me__UserI__6A30C649">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -509,19 +578,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pe__PathI__00DF2177">
-    <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
-    <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aspnet_Paths">
-        <PropertyRef Name="PathId" />
-      </Principal>
-      <Dependent Role="aspnet_PersonalizationPerUser">
-        <PropertyRef Name="PathId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__aspnet_Pe__PathI__7FEAFD3E">
+  <Association Name="FK__aspnet_Pe__PathI__6C190EBB">
     <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
     <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -533,7 +590,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pe__UserI__01D345B0">
+  <Association Name="FK__aspnet_Pe__PathI__6D0D32F4">
+    <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__6E01572D">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
     <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
     <ReferentialConstraint>
@@ -545,7 +614,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pr__UserI__02C769E9">
+  <Association Name="FK__aspnet_Pr__UserI__6EF57B66">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -577,6 +646,30 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Certification">
+        <PropertyRef Name="FK_Org" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Certification_Lookups_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Certification_Lookups" Type="Self.Certification_Lookups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Certification_Lookups">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Certification_Lookups_Organization">
+    <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+    <End Role="Certification_Lookups" Type="Self.Certification_Lookups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Certification_Lookups">
         <PropertyRef Name="FK_Org" />
       </Dependent>
     </ReferentialConstraint>
@@ -614,6 +707,18 @@
       </Principal>
       <Dependent Role="Member">
         <PropertyRef Name="FK_Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Country_Lookups">
+    <End Role="Country_Lookups" Type="Self.Country_Lookups" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country_Lookups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="FK_Country_Lookups" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -785,6 +890,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LookupSkill_Member_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="LookupSkill_Member" Type="Self.LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LookupSkill_Member_Skills_Lookups">
+    <End Role="Skills_Lookups" Type="Self.Skills_Lookups" Multiplicity="1" />
+    <End Role="LookupSkill_Member" Type="Self.LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills_Lookups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_LookupSkill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Member_Connection_Member">
     <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
     <End Role="Member_Connection" Type="Self.Member_Connection" Multiplicity="*" />
@@ -845,14 +974,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Skills_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
-    <End Role="Skills" Type="Self.Skill" Multiplicity="*" />
+  <Association Name="FK_Skill_Member_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Skill_Member" Type="Self.Skill_Member" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Skills">
+      <Dependent Role="Skill_Member">
         <PropertyRef Name="FK_Member" />
       </Dependent>
     </ReferentialConstraint>
@@ -917,6 +1046,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Skill_Member_Skills">
+    <End Role="Skills" Type="Self.Skill" Multiplicity="1" />
+    <End Role="Skill_Member" Type="Self.Skill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Skill_Member">
+        <PropertyRef Name="FK_Skill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Upload_Media_Work_Experience">
     <End Role="Work_Experience" Type="Self.Work_Experience" Multiplicity="0..1" />
     <End Role="Upload_Media" Type="Self.Upload_Media" Multiplicity="*" />
@@ -933,7 +1074,7 @@
     <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="LinkedInEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="LinkedInNewEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" />
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" />
     <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" />
@@ -945,8 +1086,10 @@
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
     <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
     <EntitySet Name="Certifications" EntityType="Self.Certification" />
+    <EntitySet Name="Certification_Lookups" EntityType="Self.Certification_Lookups" />
     <EntitySet Name="Comments" EntityType="Self.Comment" />
     <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Country_Lookups" EntityType="Self.Country_Lookups" />
     <EntitySet Name="Courses" EntityType="Self.Course" />
     <EntitySet Name="Educations" EntityType="Self.Education" />
     <EntitySet Name="Groups" EntityType="Self.Group" />
@@ -954,6 +1097,7 @@
     <EntitySet Name="Langauges" EntityType="Self.Langauge" />
     <EntitySet Name="Likes" EntityType="Self.Like" />
     <EntitySet Name="Links" EntityType="Self.Link" />
+    <EntitySet Name="LookupSkill_Member" EntityType="Self.LookupSkill_Member" />
     <EntitySet Name="Members" EntityType="Self.Member" />
     <EntitySet Name="Member_Connection" EntityType="Self.Member_Connection" />
     <EntitySet Name="Member_Group" EntityType="Self.Member_Group" />
@@ -962,43 +1106,46 @@
     <EntitySet Name="Organization_Size" EntityType="Self.Organization_Size" />
     <EntitySet Name="Posts" EntityType="Self.Post" />
     <EntitySet Name="Schools" EntityType="Self.School" />
+    <EntitySet Name="Skill_Member" EntityType="Self.Skill_Member" />
     <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="Skills_Lookups" EntityType="Self.Skills_Lookups" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Upload_Media" EntityType="Self.Upload_Media" />
     <EntitySet Name="Volunteer_Experience" EntityType="Self.Volunteer_Experience" />
     <EntitySet Name="Work_Experience" EntityType="Self.Work_Experience" />
-    <AssociationSet Name="FK__aspnet_Me__Appli__7D0E9093" Association="Self.FK__aspnet_Me__Appli__7D0E9093">
+    <AssociationSet Name="FK__aspnet_Me__Appli__693CA210" Association="Self.FK__aspnet_Me__Appli__693CA210">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pa__Appli__7EF6D905" Association="Self.FK__aspnet_Pa__Appli__7EF6D905">
+    <AssociationSet Name="FK__aspnet_Pa__Appli__6B24EA82" Association="Self.FK__aspnet_Pa__Appli__6B24EA82">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Ro__Appli__03BB8E22" Association="Self.FK__aspnet_Ro__Appli__03BB8E22">
+    <AssociationSet Name="FK__aspnet_Ro__Appli__6FE99F9F" Association="Self.FK__aspnet_Ro__Appli__6FE99F9F">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__Appli__04AFB25B" Association="Self.FK__aspnet_Us__Appli__04AFB25B">
+    <AssociationSet Name="FK__aspnet_Us__Appli__70DDC3D8" Association="Self.FK__aspnet_Us__Appli__70DDC3D8">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Me__UserI__7E02B4CC" Association="Self.FK__aspnet_Me__UserI__7E02B4CC">
+    <AssociationSet Name="FK__aspnet_Me__UserI__6A30C649" Association="Self.FK__aspnet_Me__UserI__6A30C649">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__00DF2177" Association="Self.FK__aspnet_Pe__PathI__00DF2177">
-      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-    </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__7FEAFD3E" Association="Self.FK__aspnet_Pe__PathI__7FEAFD3E">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__6C190EBB" Association="Self.FK__aspnet_Pe__PathI__6C190EBB">
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
       <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__UserI__01D345B0" Association="Self.FK__aspnet_Pe__UserI__01D345B0">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__6D0D32F4" Association="Self.FK__aspnet_Pe__PathI__6D0D32F4">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__6E01572D" Association="Self.FK__aspnet_Pe__UserI__6E01572D">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pr__UserI__02C769E9" Association="Self.FK__aspnet_Pr__UserI__02C769E9">
+    <AssociationSet Name="FK__aspnet_Pr__UserI__6EF57B66" Association="Self.FK__aspnet_Pr__UserI__6EF57B66">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
     </AssociationSet>
@@ -1010,6 +1157,14 @@
       <End Role="Organization" EntitySet="Organizations" />
       <End Role="Certification" EntitySet="Certifications" />
     </AssociationSet>
+    <AssociationSet Name="FK_Certification_Lookups_Member" Association="Self.FK_Certification_Lookups_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Certification_Lookups" EntitySet="Certification_Lookups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Certification_Lookups_Organization" Association="Self.FK_Certification_Lookups_Organization">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Certification_Lookups" EntitySet="Certification_Lookups" />
+    </AssociationSet>
     <AssociationSet Name="FK_Comment_Member" Association="Self.FK_Comment_Member">
       <End Role="Member" EntitySet="Members" />
       <End Role="Comment" EntitySet="Comments" />
@@ -1020,6 +1175,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Member_Country" Association="Self.FK_Member_Country">
       <End Role="Country" EntitySet="Countries" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Country_Lookups" Association="Self.FK_Member_Country_Lookups">
+      <End Role="Country_Lookups" EntitySet="Country_Lookups" />
       <End Role="Member" EntitySet="Members" />
     </AssociationSet>
     <AssociationSet Name="FK_Course_Member" Association="Self.FK_Course_Member">
@@ -1078,6 +1237,14 @@
       <End Role="Work_Experience" EntitySet="Work_Experience" />
       <End Role="Links" EntitySet="Links" />
     </AssociationSet>
+    <AssociationSet Name="FK_LookupSkill_Member_Member" Association="Self.FK_LookupSkill_Member_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LookupSkill_Member_Skills_Lookups" Association="Self.FK_LookupSkill_Member_Skills_Lookups">
+      <End Role="Skills_Lookups" EntitySet="Skills_Lookups" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
     <AssociationSet Name="FK_Member_Connection_Member" Association="Self.FK_Member_Connection_Member">
       <End Role="Member" EntitySet="Members" />
       <End Role="Member_Connection" EntitySet="Member_Connection" />
@@ -1098,9 +1265,9 @@
       <End Role="Member" EntitySet="Members" />
       <End Role="Posts" EntitySet="Posts" />
     </AssociationSet>
-    <AssociationSet Name="FK_Skills_Member" Association="Self.FK_Skills_Member">
+    <AssociationSet Name="FK_Skill_Member_Member" Association="Self.FK_Skill_Member_Member">
       <End Role="Member" EntitySet="Members" />
-      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
     </AssociationSet>
     <AssociationSet Name="FK_Volunteer_Experience_Member" Association="Self.FK_Volunteer_Experience_Member">
       <End Role="Member" EntitySet="Members" />
@@ -1121,6 +1288,10 @@
     <AssociationSet Name="FK_Volunteer_Experience_Organization" Association="Self.FK_Volunteer_Experience_Organization">
       <End Role="Organization" EntitySet="Organizations" />
       <End Role="Volunteer_Experience" EntitySet="Volunteer_Experience" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Member_Skills" Association="Self.FK_Skill_Member_Skills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
     </AssociationSet>
     <AssociationSet Name="FK_Upload_Media_Work_Experience" Association="Self.FK_Upload_Media_Work_Experience">
       <End Role="Work_Experience" EntitySet="Work_Experience" />
@@ -1184,7 +1355,7 @@
       <Parameter Name="MinutesSinceLastInActive" Mode="In" Type="Int32" />
       <Parameter Name="CurrentTimeUtc" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_Membership_GetPassword" ReturnType="Collection(LinkedInModel.aspnet_Membership_GetPassword_Result)">
+    <FunctionImport Name="aspnet_Membership_GetPassword" ReturnType="Collection(LinkedInNewModel.aspnet_Membership_GetPassword_Result)">
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="MaxInvalidPasswordAttempts" Mode="In" Type="Int32" />
@@ -1192,7 +1363,7 @@
       <Parameter Name="CurrentTimeUtc" Mode="In" Type="DateTime" />
       <Parameter Name="PasswordAnswer" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_Membership_GetPasswordWithFormat" ReturnType="Collection(LinkedInModel.aspnet_Membership_GetPasswordWithFormat_Result)">
+    <FunctionImport Name="aspnet_Membership_GetPasswordWithFormat" ReturnType="Collection(LinkedInNewModel.aspnet_Membership_GetPasswordWithFormat_Result)">
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="UpdateLastLoginActivityDate" Mode="In" Type="Boolean" />
@@ -1202,13 +1373,13 @@
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="Email" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_Membership_GetUserByName" ReturnType="Collection(LinkedInModel.aspnet_Membership_GetUserByName_Result)">
+    <FunctionImport Name="aspnet_Membership_GetUserByName" ReturnType="Collection(LinkedInNewModel.aspnet_Membership_GetUserByName_Result)">
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="CurrentTimeUtc" Mode="In" Type="DateTime" />
       <Parameter Name="UpdateLastActivity" Mode="In" Type="Boolean" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_Membership_GetUserByUserId" ReturnType="Collection(LinkedInModel.aspnet_Membership_GetUserByUserId_Result)">
+    <FunctionImport Name="aspnet_Membership_GetUserByUserId" ReturnType="Collection(LinkedInNewModel.aspnet_Membership_GetUserByUserId_Result)">
       <Parameter Name="UserId" Mode="In" Type="Guid" />
       <Parameter Name="CurrentTimeUtc" Mode="In" Type="DateTime" />
       <Parameter Name="UpdateLastActivity" Mode="In" Type="Boolean" />
@@ -1356,7 +1527,7 @@
       <Parameter Name="UserNameToMatch" Mode="In" Type="String" />
       <Parameter Name="InactiveSinceDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_Profile_GetProperties" ReturnType="Collection(LinkedInModel.aspnet_Profile_GetProperties_Result)">
+    <FunctionImport Name="aspnet_Profile_GetProperties" ReturnType="Collection(LinkedInNewModel.aspnet_Profile_GetProperties_Result)">
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="CurrentTimeUtc" Mode="In" Type="DateTime" />
@@ -1439,7 +1610,7 @@
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="RoleName" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="aspnet_UsersInRoles_RemoveUsersFromRoles" ReturnType="Collection(LinkedInModel.aspnet_UsersInRoles_RemoveUsersFromRoles_Result)">
+    <FunctionImport Name="aspnet_UsersInRoles_RemoveUsersFromRoles" ReturnType="Collection(LinkedInNewModel.aspnet_UsersInRoles_RemoveUsersFromRoles_Result)">
       <Parameter Name="ApplicationName" Mode="In" Type="String" />
       <Parameter Name="UserNames" Mode="In" Type="String" />
       <Parameter Name="RoleNames" Mode="In" Type="String" />
@@ -1464,8 +1635,8 @@
     <FunctionImport Name="Certification_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Certification_GetAll" ReturnType="Collection(LinkedInModel.Certification_GetAll_Result)" />
-    <FunctionImport Name="Certification_GetByID" ReturnType="Collection(LinkedInModel.Certification_GetByID_Result)">
+    <FunctionImport Name="Certification_GetAll" ReturnType="Collection(LinkedInNewModel.Certification_GetAll_Result)" />
+    <FunctionImport Name="Certification_GetByID" ReturnType="Collection(LinkedInNewModel.Certification_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Certification_Insert">
@@ -1477,9 +1648,27 @@
       <Parameter Name="End_Year" Mode="In" Type="Int32" />
       <Parameter Name="End_Month" Mode="In" Type="Int32" />
       <Parameter Name="URL" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Certification_Update">
+    <FunctionImport Name="Certification_Lookups_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Certification_Lookups_GetAll" ReturnType="Collection(LinkedInNewModel.Certification_Lookups_GetAll_Result)" />
+    <FunctionImport Name="Certification_Lookups_GetByID" ReturnType="Collection(LinkedInNewModel.Certification_Lookups_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Certification_Lookups_Insert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="FK_Org" Mode="In" Type="Int32" />
+      <Parameter Name="License_Number" Mode="In" Type="Int32" />
+      <Parameter Name="Start_Year" Mode="In" Type="Int32" />
+      <Parameter Name="Start_Month" Mode="In" Type="Int32" />
+      <Parameter Name="End_Year" Mode="In" Type="Int32" />
+      <Parameter Name="End_Month" Mode="In" Type="Int32" />
+      <Parameter Name="URL" Mode="In" Type="String" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Certification_Lookups_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="FK_Org" Mode="In" Type="Int32" />
@@ -1489,34 +1678,48 @@
       <Parameter Name="End_Year" Mode="In" Type="Int32" />
       <Parameter Name="End_Month" Mode="In" Type="Int32" />
       <Parameter Name="URL" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Comment_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Comment_GetALL" ReturnType="Collection(LinkedInModel.Comment_GetALL_Result)" />
-    <FunctionImport Name="Comment_GetByID" ReturnType="Collection(LinkedInModel.Comment_GetByID_Result)">
+    <FunctionImport Name="Comment_GetALL" ReturnType="Collection(LinkedInNewModel.Comment_GetALL_Result)" />
+    <FunctionImport Name="Comment_GetByID" ReturnType="Collection(LinkedInNewModel.Comment_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Comment_Insert">
       <Parameter Name="Content" Mode="In" Type="String" />
       <Parameter Name="FK_Post" Mode="In" Type="Int32" />
-      <Parameter Name="FK_MemberWrite" Mode="In" Type="Guid" />
+      <Parameter Name="FK_MemberWrite" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Comment_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Content" Mode="In" Type="String" />
       <Parameter Name="FK_Post" Mode="In" Type="Int32" />
-      <Parameter Name="FK_MemberWrite" Mode="In" Type="Guid" />
+      <Parameter Name="FK_MemberWrite" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Country_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Country_GetAll" ReturnType="Collection(LinkedInModel.Country_GetAll_Result)" />
-    <FunctionImport Name="Country_GetByID" ReturnType="Collection(LinkedInModel.Country_GetByID_Result)">
+    <FunctionImport Name="Country_GetAll" ReturnType="Collection(LinkedInNewModel.Country_GetAll_Result)" />
+    <FunctionImport Name="Country_GetByID" ReturnType="Collection(LinkedInNewModel.Country_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Country_Insert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Country_Lookups_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Country_Lookups_GetAll" ReturnType="Collection(LinkedInNewModel.Country_Lookups_GetAll_Result)" />
+    <FunctionImport Name="Country_Lookups_GetByID" ReturnType="Collection(LinkedInNewModel.Country_Lookups_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Country_Lookups_Insert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Country_Lookups_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Country_Update">
@@ -1526,28 +1729,15 @@
     <FunctionImport Name="Course_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Course_GetAll" ReturnType="Collection(LinkedInModel.Course_GetAll_Result)" />
-    <FunctionImport Name="Course_GetByID" ReturnType="Collection(LinkedInModel.Course_GetByID_Result)">
+    <FunctionImport Name="Course_GetAll" ReturnType="Collection(LinkedInNewModel.Course_GetAll_Result)" />
+    <FunctionImport Name="Course_GetByID" ReturnType="Collection(LinkedInNewModel.Course_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Course_Insert">
-      <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="Number" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Org" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-    </FunctionImport>
-    <FunctionImport Name="Course_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="Number" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Org" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
     </FunctionImport>
     <FunctionImport Name="Education_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Education_GetAll" ReturnType="Collection(LinkedInModel.Education_GetAll_Result)" />
-    <FunctionImport Name="Education_GetByID" EntitySet="Educations" ReturnType="Collection(LinkedInModel.Education)">
+    <FunctionImport Name="Education_GetAll" ReturnType="Collection(LinkedInNewModel.Education_GetAll_Result)" />
+    <FunctionImport Name="Education_GetByID" ReturnType="Collection(LinkedInNewModel.Education_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Education_Insert">
@@ -1559,7 +1749,7 @@
       <Parameter Name="From_Year" Mode="In" Type="Int32" />
       <Parameter Name="To_Year" Mode="In" Type="Int32" />
       <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Education_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1571,20 +1761,20 @@
       <Parameter Name="From_Year" Mode="In" Type="Int32" />
       <Parameter Name="To_Year" Mode="In" Type="Int32" />
       <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Group_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Group_GetAll" ReturnType="Collection(LinkedInModel.Group_GetAll_Result)" />
-    <FunctionImport Name="Group_GetByID" ReturnType="Collection(LinkedInModel.Group_GetByID_Result)">
+    <FunctionImport Name="Group_GetAll" ReturnType="Collection(LinkedInNewModel.Group_GetAll_Result)" />
+    <FunctionImport Name="Group_GetByID" ReturnType="Collection(LinkedInNewModel.Group_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Group_Insert">
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="Description" Mode="In" Type="String" />
       <Parameter Name="Data_Start" Mode="In" Type="DateTime" />
-      <Parameter Name="FK_Create_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Create_Member" Mode="In" Type="Int32" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="Group_Update">
@@ -1592,14 +1782,14 @@
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="Description" Mode="In" Type="String" />
       <Parameter Name="Data_Start" Mode="In" Type="DateTime" />
-      <Parameter Name="FK_Create_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Create_Member" Mode="In" Type="Int32" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="Industry_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Industry_GetAll" ReturnType="Collection(LinkedInModel.Industry_GetAll_Result)" />
-    <FunctionImport Name="Industry_GetByID" ReturnType="Collection(LinkedInModel.Industry_GetByID_Result)">
+    <FunctionImport Name="Industry_GetAll" ReturnType="Collection(LinkedInNewModel.Industry_GetAll_Result)" />
+    <FunctionImport Name="Industry_GetByID" ReturnType="Collection(LinkedInNewModel.Industry_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Industry_Insert">
@@ -1612,42 +1802,31 @@
     <FunctionImport Name="Langauge_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Langauge_GetAll" ReturnType="Collection(LinkedInModel.Langauge_GetAll_Result)" />
-    <FunctionImport Name="Langauge_GetByID" ReturnType="Collection(LinkedInModel.Langauge_GetByID_Result)">
+    <FunctionImport Name="Langauge_GetAll" ReturnType="Collection(LinkedInNewModel.Langauge_GetAll_Result)" />
+    <FunctionImport Name="Langauge_GetByID" ReturnType="Collection(LinkedInNewModel.Langauge_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Langauge_Insert">
-      <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="Lang_Level" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-    </FunctionImport>
-    <FunctionImport Name="Langauge_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="Lang_Level" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
     </FunctionImport>
     <FunctionImport Name="Like_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Like_GetAll" ReturnType="Collection(LinkedInModel.Like_GetAll_Result)" />
-    <FunctionImport Name="Like_GetByID" ReturnType="Collection(LinkedInModel.Like_GetByID_Result)">
+    <FunctionImport Name="Like_GetAll" ReturnType="Collection(LinkedInNewModel.Like_GetAll_Result)" />
+    <FunctionImport Name="Like_GetByID" ReturnType="Collection(LinkedInNewModel.Like_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Like_Insert">
       <Parameter Name="FK_Post" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Like_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="FK_Post" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Links_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Links_GetAll" ReturnType="Collection(LinkedInModel.Links_GetAll_Result)" />
-    <FunctionImport Name="Links_GetByID" ReturnType="Collection(LinkedInModel.Links_GetByID_Result)">
+    <FunctionImport Name="Links_GetAll" ReturnType="Collection(LinkedInNewModel.Links_GetAll_Result)" />
+    <FunctionImport Name="Links_GetByID" ReturnType="Collection(LinkedInNewModel.Links_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Links_Insert">
@@ -1663,55 +1842,44 @@
       <Parameter Name="Description" Mode="In" Type="String" />
       <Parameter Name="URL" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="LookupSkill_Member_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Lookupskill_Member_GetAll" ReturnType="Collection(LinkedInNewModel.Lookupskill_Member_GetAll_Result)" />
+    <FunctionImport Name="LookupSkill_Member_GetByID" ReturnType="Collection(LinkedInNewModel.LookupSkill_Member_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LookupSkill_Member_Insert">
+      <Parameter Name="FK_LookupSkill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LookupSkill_Member_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="FK_LookupSkill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="Member_Connection_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Member_Connection_GetAll" ReturnType="Collection(LinkedInModel.Member_Connection_GetAll_Result)" />
-    <FunctionImport Name="Member_Connection_GetByID" ReturnType="Collection(LinkedInModel.Member_Connection_GetByID_Result)">
+    <FunctionImport Name="Member_Connection_GetAll" ReturnType="Collection(LinkedInNewModel.Member_Connection_GetAll_Result)" />
+    <FunctionImport Name="Member_Connection_GetByID" ReturnType="Collection(LinkedInNewModel.Member_Connection_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Member_Connection_Insert">
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-      <Parameter Name="FK_Connect_Member" Mode="In" Type="Guid" />
-      <Parameter Name="Date_Start" Mode="In" Type="DateTime" />
-      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="Member_Connection_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-      <Parameter Name="FK_Connect_Member" Mode="In" Type="Guid" />
-      <Parameter Name="Date_Start" Mode="In" Type="DateTime" />
-      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="Member_Delete">
-      <Parameter Name="ID" Mode="In" Type="Guid" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Member_GetAll" ReturnType="Collection(LinkedInModel.Member_GetAll_Result)" />
-    <FunctionImport Name="Member_GetByID" ReturnType="Collection(LinkedInModel.Member_GetByID_Result)">
-      <Parameter Name="ID" Mode="In" Type="Guid" />
+    <FunctionImport Name="Member_GetAll" ReturnType="Collection(LinkedInNewModel.Member_GetAll_Result)" />
+    <FunctionImport Name="Member_GetByID" ReturnType="Collection(LinkedInNewModel.Member_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Member_Group_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Member_Group_GetAll" ReturnType="Collection(LinkedInModel.Member_Group_GetAll_Result)" />
-    <FunctionImport Name="Member_Group_GetByID" ReturnType="Collection(LinkedInModel.Member_Group_GetByID_Result)">
+    <FunctionImport Name="Member_Group_GetAll" ReturnType="Collection(LinkedInNewModel.Member_Group_GetAll_Result)" />
+    <FunctionImport Name="Member_Group_GetByID" ReturnType="Collection(LinkedInNewModel.Member_Group_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Member_Group_Insert">
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-      <Parameter Name="FK_Group" Mode="In" Type="Int32" />
-      <Parameter Name="Date_Join" Mode="In" Type="DateTime" />
-      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="Member_Group_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-      <Parameter Name="FK_Group" Mode="In" Type="Int32" />
-      <Parameter Name="Date_Join" Mode="In" Type="DateTime" />
-      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="Member_Insert">
-      <Parameter Name="ID" Mode="In" Type="Guid" />
       <Parameter Name="Fisrt_Name" Mode="In" Type="String" />
       <Parameter Name="Middle_Name" Mode="In" Type="String" />
       <Parameter Name="Last_Name" Mode="In" Type="String" />
@@ -1725,12 +1893,14 @@
       <Parameter Name="Date_Joined" Mode="In" Type="DateTime" />
       <Parameter Name="Zip_Code" Mode="In" Type="Int32" />
       <Parameter Name="FK_Country" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Country_Lookups" Mode="In" Type="Int32" />
       <Parameter Name="Profile_URL" Mode="In" Type="String" />
       <Parameter Name="FK_Industry" Mode="In" Type="Int32" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+      <Parameter Name="Membership_ID" Mode="In" Type="Guid" />
     </FunctionImport>
     <FunctionImport Name="Member_Update">
-      <Parameter Name="ID" Mode="In" Type="Guid" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Fisrt_Name" Mode="In" Type="String" />
       <Parameter Name="Middle_Name" Mode="In" Type="String" />
       <Parameter Name="Last_Name" Mode="In" Type="String" />
@@ -1747,6 +1917,7 @@
       <Parameter Name="Profile_URL" Mode="In" Type="String" />
       <Parameter Name="FK_Industry" Mode="In" Type="Int32" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+      <Parameter Name="Membership_ID" Mode="In" Type="Guid" />
     </FunctionImport>
     <FunctionImport Name="Organization_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1754,21 +1925,12 @@
     <FunctionImport Name="Organization_Follower_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Organization_Follower_GetAll" ReturnType="Collection(LinkedInModel.Organization_Follower_GetAll_Result)" />
-    <FunctionImport Name="Organization_Follower_GetByID" ReturnType="Collection(LinkedInModel.Organization_Follower_GetByID_Result)">
+    <FunctionImport Name="Organization_Follower_GetAll" ReturnType="Collection(LinkedInNewModel.Organization_Follower_GetAll_Result)" />
+    <FunctionImport Name="Organization_Follower_GetByID" ReturnType="Collection(LinkedInNewModel.Organization_Follower_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Organization_Follower_Insert">
-      <Parameter Name="FK_Organization" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-    </FunctionImport>
-    <FunctionImport Name="Organization_Follower_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Organization" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-    </FunctionImport>
-    <FunctionImport Name="Organization_GetAll" ReturnType="Collection(LinkedInModel.Organization_GetAll_Result)" />
-    <FunctionImport Name="Organization_GetByID" ReturnType="Collection(LinkedInModel.Organization_GetByID_Result)">
+    <FunctionImport Name="Organization_GetAll" ReturnType="Collection(LinkedInNewModel.Organization_GetAll_Result)" />
+    <FunctionImport Name="Organization_GetByID" ReturnType="Collection(LinkedInNewModel.Organization_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Organization_Insert">
@@ -1786,8 +1948,8 @@
     <FunctionImport Name="Organization_Size_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Organization_Size_GetAll" ReturnType="Collection(LinkedInModel.Organization_Size_GetAll_Result)" />
-    <FunctionImport Name="Organization_Size_GetByID" ReturnType="Collection(LinkedInModel.Organization_Size_GetByID_Result)">
+    <FunctionImport Name="Organization_Size_GetAll" ReturnType="Collection(LinkedInNewModel.Organization_Size_GetAll_Result)" />
+    <FunctionImport Name="Organization_Size_GetByID" ReturnType="Collection(LinkedInNewModel.Organization_Size_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Organization_Size_Insert">
@@ -1815,24 +1977,25 @@
     <FunctionImport Name="Posts_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Posts_GetAll" ReturnType="Collection(LinkedInModel.Posts_GetAll_Result)" />
-    <FunctionImport Name="Posts_GetByID" ReturnType="Collection(LinkedInModel.Posts_GetByID_Result)">
+    <FunctionImport Name="Posts_GetAll" ReturnType="Collection(LinkedInNewModel.Posts_GetAll_Result)" />
+    <FunctionImport Name="Posts_GetByID" ReturnType="Collection(LinkedInNewModel.Posts_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Posts_Insert">
       <Parameter Name="Content" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="Posts_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Content" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="School_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="School_GetAll" ReturnType="Collection(LinkedInModel.School_GetAll_Result)" />
-    <FunctionImport Name="School_GetByID" ReturnType="Collection(LinkedInModel.School_GetByID_Result)">
+    <FunctionImport Name="School_GetAll" ReturnType="Collection(LinkedInNewModel.School_GetAll_Result)" />
+    <FunctionImport Name="School_GetByID" ReturnType="Collection(LinkedInNewModel.School_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="School_Insert">
@@ -1854,27 +2017,88 @@
       <Parameter Name="Date_Start" Mode="In" Type="DateTime" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="Skill_Member_GetByID" ReturnType="Collection(LinkedInNewModel.Skill_Member_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skill_Member_Insert">
+      <Parameter Name="FK_Skill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skill_Member_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Skill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="Skills_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Skills_GetAll" ReturnType="Collection(LinkedInModel.Skills_GetAll_Result)" />
-    <FunctionImport Name="Skills_GetByID" ReturnType="Collection(LinkedInModel.Skills_GetByID_Result)">
+    <FunctionImport Name="Skills_GetAll" ReturnType="Collection(LinkedInNewModel.Skills_GetAll_Result)" />
+    <FunctionImport Name="Skills_GetByID" ReturnType="Collection(LinkedInNewModel.Skills_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Skills_Insert">
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
     </FunctionImport>
+    <FunctionImport Name="Skills_Lookups_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_Lookups_GetAll" ReturnType="Collection(LinkedInNewModel.Skills_Lookups_GetAll_Result)" />
+    <FunctionImport Name="Skills_Lookups_GetByID" ReturnType="Collection(LinkedInNewModel.Skills_Lookups_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_Lookups_Insert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_Lookups_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_Member_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_MemberGetAll" ReturnType="Collection(LinkedInNewModel.Skills_MemberGetAll_Result)" />
     <FunctionImport Name="Skills_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
     </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetConnectionPosts" ReturnType="Collection(LinkedInNewModel.SP_GetConnectionPosts_Result)">
+      <Parameter Name="Memberid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LinkedInNewModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LinkedInNewModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
     <FunctionImport Name="Upload_Media_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Upload_Media_GetAll" ReturnType="Collection(LinkedInModel.Upload_Media_GetAll_Result)" />
-    <FunctionImport Name="Upload_Media_GetByID" ReturnType="Collection(LinkedInModel.Upload_Media_GetByID_Result)">
+    <FunctionImport Name="Upload_Media_GetAll" ReturnType="Collection(LinkedInNewModel.Upload_Media_GetAll_Result)" />
+    <FunctionImport Name="Upload_Media_GetByID" ReturnType="Collection(LinkedInNewModel.Upload_Media_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Upload_Media_Insert">
@@ -1893,38 +2117,15 @@
     <FunctionImport Name="Volunteer_Experience_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Volunteer_Experience_GetAll" ReturnType="Collection(LinkedInModel.Volunteer_Experience_GetAll_Result)" />
-    <FunctionImport Name="Volunteer_Experience_GetByID" ReturnType="Collection(LinkedInModel.Volunteer_Experience_GetByID_Result)">
+    <FunctionImport Name="Volunteer_Experience_GetAll" ReturnType="Collection(LinkedInNewModel.Volunteer_Experience_GetAll_Result)" />
+    <FunctionImport Name="Volunteer_Experience_GetByID" ReturnType="Collection(LinkedInNewModel.Volunteer_Experience_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Volunteer_Experience_Insert">
-      <Parameter Name="FK_Org" Mode="In" Type="Int32" />
-      <Parameter Name="Role" Mode="In" Type="String" />
-      <Parameter Name="Cause" Mode="In" Type="String" />
-      <Parameter Name="Start_Year" Mode="In" Type="Int32" />
-      <Parameter Name="Start_Month" Mode="In" Type="Int32" />
-      <Parameter Name="End_Year" Mode="In" Type="Int32" />
-      <Parameter Name="End_Month" Mode="In" Type="Int32" />
-      <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
-    </FunctionImport>
-    <FunctionImport Name="Volunteer_Experience_Update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="FK_Org" Mode="In" Type="Int32" />
-      <Parameter Name="Role" Mode="In" Type="String" />
-      <Parameter Name="Cause" Mode="In" Type="String" />
-      <Parameter Name="Start_Year" Mode="In" Type="Int32" />
-      <Parameter Name="Start_Month" Mode="In" Type="Int32" />
-      <Parameter Name="End_Year" Mode="In" Type="Int32" />
-      <Parameter Name="End_Month" Mode="In" Type="Int32" />
-      <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
     </FunctionImport>
     <FunctionImport Name="Work_Experience_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Work_Experience_GetAll" ReturnType="Collection(LinkedInModel.Work_Experience_GetAll_Result)" />
-    <FunctionImport Name="Work_Experience_GetByID" ReturnType="Collection(LinkedInModel.Work_Experience_GetByID_Result)">
+    <FunctionImport Name="Work_Experience_GetAll" ReturnType="Collection(LinkedInNewModel.Work_Experience_GetAll_Result)" />
+    <FunctionImport Name="Work_Experience_GetByID" ReturnType="Collection(LinkedInNewModel.Work_Experience_GetByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Work_Experience_Insert">
@@ -1936,7 +2137,7 @@
       <Parameter Name="To_Year" Mode="In" Type="Int32" />
       <Parameter Name="To_Month" Mode="In" Type="Int32" />
       <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Work_Experience_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1948,7 +2149,7 @@
       <Parameter Name="To_Year" Mode="In" Type="Int32" />
       <Parameter Name="To_Month" Mode="In" Type="Int32" />
       <Parameter Name="Description" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Guid" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="aspnet_Membership_GetPassword_Result">
@@ -2010,7 +2211,7 @@
     <Property Type="Int32" Name="End_Year" Nullable="true" />
     <Property Type="Int32" Name="End_Month" Nullable="true" />
     <Property Type="String" Name="URL" Nullable="true" MaxLength="100" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Certification_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2022,19 +2223,43 @@
     <Property Type="Int32" Name="End_Year" Nullable="true" />
     <Property Type="Int32" Name="End_Month" Nullable="true" />
     <Property Type="String" Name="URL" Nullable="true" MaxLength="100" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Certification_Lookups_GetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Org" Nullable="true" />
+    <Property Type="Int32" Name="License_Number" Nullable="true" />
+    <Property Type="Int32" Name="Start_Year" Nullable="true" />
+    <Property Type="Int32" Name="Start_Month" Nullable="true" />
+    <Property Type="Int32" Name="End_Year" Nullable="true" />
+    <Property Type="Int32" Name="End_Month" Nullable="true" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Certification_Lookups_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Org" Nullable="true" />
+    <Property Type="Int32" Name="License_Number" Nullable="true" />
+    <Property Type="Int32" Name="Start_Year" Nullable="true" />
+    <Property Type="Int32" Name="Start_Month" Nullable="true" />
+    <Property Type="Int32" Name="End_Year" Nullable="true" />
+    <Property Type="Int32" Name="End_Month" Nullable="true" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Comment_GetALL_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Content" Nullable="true" MaxLength="Max" />
     <Property Type="Int32" Name="FK_Post" Nullable="true" />
-    <Property Type="Guid" Name="FK_MemberWrite" Nullable="true" />
+    <Property Type="Int32" Name="FK_MemberWrite" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Comment_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Content" Nullable="true" MaxLength="Max" />
     <Property Type="Int32" Name="FK_Post" Nullable="true" />
-    <Property Type="Guid" Name="FK_MemberWrite" Nullable="true" />
+    <Property Type="Int32" Name="FK_MemberWrite" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Country_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2044,19 +2269,27 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
   </ComplexType>
+  <ComplexType Name="Country_Lookups_GetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Country_Lookups_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
   <ComplexType Name="Course_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Number" Nullable="true" />
     <Property Type="Int32" Name="FK_Org" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Course_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Number" Nullable="true" />
     <Property Type="Int32" Name="FK_Org" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Education_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2068,7 +2301,7 @@
     <Property Type="Int32" Name="From_Year" Nullable="true" />
     <Property Type="Int32" Name="To_Year" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Education_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2080,14 +2313,14 @@
     <Property Type="Int32" Name="From_Year" Nullable="true" />
     <Property Type="Int32" Name="To_Year" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Group_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
     <Property Type="DateTime" Name="Data_Start" Nullable="true" />
-    <Property Type="Guid" Name="FK_Create_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Create_Member" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Group_GetByID_Result">
@@ -2095,7 +2328,7 @@
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
     <Property Type="DateTime" Name="Data_Start" Nullable="true" />
-    <Property Type="Guid" Name="FK_Create_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Create_Member" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Industry_GetAll_Result">
@@ -2110,23 +2343,23 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Lang_Level" Nullable="true" MaxLength="50" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Langauge_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Lang_Level" Nullable="true" MaxLength="50" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Like_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="FK_Post" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Like_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="FK_Post" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Links_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2142,22 +2375,32 @@
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
     <Property Type="String" Name="URL" Nullable="true" MaxLength="100" />
   </ComplexType>
+  <ComplexType Name="Lookupskill_Member_GetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_LookupSkill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LookupSkill_Member_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_LookupSkill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
   <ComplexType Name="Member_Connection_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
-    <Property Type="Guid" Name="FK_Connect_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Connect_Member" Nullable="true" />
     <Property Type="DateTime" Name="Date_Start" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Member_Connection_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
-    <Property Type="Guid" Name="FK_Connect_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Connect_Member" Nullable="true" />
     <Property Type="DateTime" Name="Date_Start" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Member_GetAll_Result">
-    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Fisrt_Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Middle_Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Last_Name" Nullable="true" MaxLength="50" />
@@ -2170,13 +2413,15 @@
     <Property Type="DateTime" Name="Date_Of_Birth" Nullable="true" />
     <Property Type="DateTime" Name="Date_Joined" Nullable="true" />
     <Property Type="Int32" Name="Zip_Code" Nullable="true" />
+    <Property Type="Int32" Name="FK_Country_Lookups" Nullable="true" />
     <Property Type="Int32" Name="FK_Country" Nullable="true" />
     <Property Type="String" Name="Profile_URL" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="FK_Industry" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="Guid" Name="Membership_ID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="Member_GetByID_Result">
-    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Fisrt_Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Middle_Name" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Last_Name" Nullable="true" MaxLength="50" />
@@ -2189,21 +2434,23 @@
     <Property Type="DateTime" Name="Date_Of_Birth" Nullable="true" />
     <Property Type="DateTime" Name="Date_Joined" Nullable="true" />
     <Property Type="Int32" Name="Zip_Code" Nullable="true" />
+    <Property Type="Int32" Name="FK_Country_Lookups" Nullable="true" />
     <Property Type="Int32" Name="FK_Country" Nullable="true" />
     <Property Type="String" Name="Profile_URL" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="FK_Industry" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="Guid" Name="Membership_ID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="Member_Group_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
     <Property Type="Int32" Name="FK_Group" Nullable="true" />
     <Property Type="DateTime" Name="Date_Join" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Member_Group_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
     <Property Type="Int32" Name="FK_Group" Nullable="true" />
     <Property Type="DateTime" Name="Date_Join" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
@@ -2211,12 +2458,12 @@
   <ComplexType Name="Organization_Follower_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="FK_Organization" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Organization_Follower_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="FK_Organization" Nullable="true" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Organization_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2257,12 +2504,14 @@
   <ComplexType Name="Posts_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Content" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Posts_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Content" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
   </ComplexType>
   <ComplexType Name="School_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2284,15 +2533,49 @@
     <Property Type="DateTime" Name="Date_Start" Nullable="true" />
     <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="Skill_Member_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_Skill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
   <ComplexType Name="Skills_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Skills_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Skills_Lookups_GetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Skills_Lookups_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Skills_MemberGetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_Skill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_GetConnectionPosts_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Profile_Img" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Fisrt_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HeadLine" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="Upload_Media_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2318,7 +2601,7 @@
     <Property Type="Int32" Name="End_Year" Nullable="true" />
     <Property Type="Int32" Name="End_Month" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Volunteer_Experience_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2330,7 +2613,7 @@
     <Property Type="Int32" Name="End_Year" Nullable="true" />
     <Property Type="Int32" Name="End_Month" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Work_Experience_GetAll_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2342,7 +2625,7 @@
     <Property Type="Int32" Name="To_Year" Nullable="true" />
     <Property Type="Int32" Name="To_Month" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Work_Experience_GetByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2354,6 +2637,6 @@
     <Property Type="Int32" Name="To_Year" Nullable="true" />
     <Property Type="Int32" Name="To_Month" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
-    <Property Type="Guid" Name="FK_Member" Nullable="true" />
+    <Property Type="Int32" Name="FK_Member" Nullable="true" />
   </ComplexType>
 </Schema>

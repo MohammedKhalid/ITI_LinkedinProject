@@ -23,7 +23,7 @@ namespace ITI_Linkedin_Managers.Managers
         public bool Add(Post e)
         {
             //to return entity if added or null if failed 
-            return link.Posts_Insert(e.Content, e.FK_Member) > 0;
+            return link.Posts_Insert(e.Content, e.FK_Member,e.Date) > 0;
 
         }
 

@@ -332,6 +332,8 @@
     <NavigationProperty Name="Skills" Relationship="Self.FK_Skills_Member" FromRole="Member" ToRole="Skills" />
     <NavigationProperty Name="Volunteer_Experience" Relationship="Self.FK_Volunteer_Experience_Member" FromRole="Member" ToRole="Volunteer_Experience" />
     <NavigationProperty Name="Work_Experience" Relationship="Self.FK_Work_Experience_Member" FromRole="Member" ToRole="Work_Experience" />
+    <NavigationProperty Name="LookupSkill_Member" Relationship="LinkedInNewModel.FK_LookupSkill_Member_Member" FromRole="Member" ToRole="LookupSkill_Member" />
+    <NavigationProperty Name="Skill_Member" Relationship="LinkedInNewModel.FK_Skill_Member_Member" FromRole="Member" ToRole="Skill_Member" />
   </EntityType>
   <EntityType Name="Member_Connection">
     <Key>
@@ -433,6 +435,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Skills_Member" FromRole="Skills" ToRole="Member" />
+    <NavigationProperty Name="Skill_Member" Relationship="LinkedInNewModel.FK_Skill_Member_Skills" FromRole="Skill" ToRole="Skill_Member" />
   </EntityType>
   <EntityType Name="Skills_Lookups">
     <Key>
@@ -442,6 +445,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FK_Member" Type="Int32" />
     <NavigationProperty Name="Member" Relationship="Self.FK_Skills_Lookups_Member" FromRole="Skills_Lookups" ToRole="Member" />
+    <NavigationProperty Name="LookupSkill_Member" Relationship="LinkedInNewModel.FK_LookupSkill_Member_Skills_Lookups" FromRole="Skills_Lookups" ToRole="LookupSkill_Member" />
   </EntityType>
   <EntityType Name="Upload_Media">
     <Key>
@@ -1865,7 +1869,6 @@
     </FunctionImport>
     <FunctionImport Name="Skills_Insert">
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Skills_Lookups_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1876,17 +1879,14 @@
     </FunctionImport>
     <FunctionImport Name="Skills_Lookups_Insert">
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Skills_Lookups_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Skills_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
-      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Upload_Media_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1990,6 +1990,7 @@
     <FunctionImport Name="Posts_Insert">
       <Parameter Name="Content" Mode="In" Type="String" />
       <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="Posts_Update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -2029,6 +2030,87 @@
     <FunctionImport Name="SP_GetConnectionPosts" ReturnType="Collection(LinkedInNewModel.SP_GetConnectionPosts_Result)">
       <Parameter Name="Memberid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="LookupSkill_Member" EntityType="LinkedInNewModel.LookupSkill_Member" />
+    <EntitySet Name="Skill_Member" EntityType="LinkedInNewModel.Skill_Member" />
+    <EntitySet Name="sysdiagrams" EntityType="LinkedInNewModel.sysdiagram" />
+    <AssociationSet Name="FK_LookupSkill_Member_Member" Association="LinkedInNewModel.FK_LookupSkill_Member_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LookupSkill_Member_Skills_Lookups" Association="LinkedInNewModel.FK_LookupSkill_Member_Skills_Lookups">
+      <End Role="Skills_Lookups" EntitySet="Skills_Lookups" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Member_Member" Association="LinkedInNewModel.FK_Skill_Member_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Member_Skills" Association="LinkedInNewModel.FK_Skill_Member_Skills">
+      <End Role="Skill" EntitySet="Skills" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
+    </AssociationSet>
+    <FunctionImport Name="LookupSkill_Member_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Lookupskill_Member_GetAll" ReturnType="Collection(LinkedInNewModel.Lookupskill_Member_GetAll_Result)" />
+    <FunctionImport Name="LookupSkill_Member_GetByID" ReturnType="Collection(LinkedInNewModel.LookupSkill_Member_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LookupSkill_Member_Insert">
+      <Parameter Name="FK_LookupSkill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LookupSkill_Member_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="FK_LookupSkill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skill_Member_GetByID" ReturnType="Collection(LinkedInNewModel.Skill_Member_GetByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skill_Member_Insert">
+      <Parameter Name="FK_Skill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skill_Member_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Skill" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Member" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_Member_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Skills_MemberGetAll" ReturnType="Collection(LinkedInNewModel.Skills_MemberGetAll_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LinkedInNewModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LinkedInNewModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
   <ComplexType Name="aspnet_Membership_GetPassword_Result">
     <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -2487,5 +2569,114 @@
     <Property Type="String" Name="Profile_Img" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Column1" Nullable="true" MaxLength="151" />
     <Property Type="String" Name="HeadLine" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="LookupSkill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_LookupSkill" Type="Int32" Nullable="false" />
+    <Property Name="FK_Member" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="LinkedInNewModel.FK_LookupSkill_Member_Member" FromRole="LookupSkill_Member" ToRole="Member" />
+    <NavigationProperty Name="Skills_Lookups" Relationship="LinkedInNewModel.FK_LookupSkill_Member_Skills_Lookups" FromRole="LookupSkill_Member" ToRole="Skills_Lookups" />
+  </EntityType>
+  <EntityType Name="Skill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Skill" Type="Int32" Nullable="false" />
+    <Property Name="FK_Member" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="LinkedInNewModel.FK_Skill_Member_Member" FromRole="Skill_Member" ToRole="Member" />
+    <NavigationProperty Name="Skill" Relationship="LinkedInNewModel.FK_Skill_Member_Skills" FromRole="Skill_Member" ToRole="Skill" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_LookupSkill_Member_Member">
+    <End Type="LinkedInNewModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="LinkedInNewModel.LookupSkill_Member" Role="LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LookupSkill_Member_Skills_Lookups">
+    <End Type="LinkedInNewModel.Skills_Lookups" Role="Skills_Lookups" Multiplicity="1" />
+    <End Type="LinkedInNewModel.LookupSkill_Member" Role="LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills_Lookups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_LookupSkill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Member_Member">
+    <End Type="LinkedInNewModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="LinkedInNewModel.Skill_Member" Role="Skill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Skill_Member">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Member_Skills">
+    <End Type="LinkedInNewModel.Skill" Role="Skill" Multiplicity="1" />
+    <End Type="LinkedInNewModel.Skill_Member" Role="Skill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Skill_Member">
+        <PropertyRef Name="FK_Skill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Lookupskill_Member_GetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_LookupSkill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LookupSkill_Member_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_LookupSkill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Skill_Member_GetByID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_Skill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Skills_MemberGetAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="FK_Skill" Nullable="false" />
+    <Property Type="Int32" Name="FK_Member" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
 </Schema>

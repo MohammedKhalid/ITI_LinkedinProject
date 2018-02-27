@@ -11,9 +11,9 @@ namespace DAL
 {
     using System;
     
-    public partial class Skills_Lookups_GetAll_Result
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

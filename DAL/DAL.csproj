@@ -49,306 +49,333 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aspnet_Applications.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Membership.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Membership_GetPassword_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Membership_GetUserByName_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Paths.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Profile.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Profile_GetProperties_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Roles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_SchemaVersions.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="aspnet_WebEvent_Events.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification_Lookups.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification_Lookups_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Certification_Lookups_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment_GetALL_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country_Lookups.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country_Lookups_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country_Lookups_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Course.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Course_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Course_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Education.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Education_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Education_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Group.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Group_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Group_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Industry.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Industry_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Industry_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Langauge.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Langauge_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Langauge_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Like.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Like_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Like_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Link.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedinModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinkedinModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedinModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedinModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinkedinModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Links_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Links_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookupSkill_Member.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lookupskill_Member_GetAll_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookupSkill_Member_GetByID_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Connection.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Connection_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Connection_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Group.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Group_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member_Group_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Follower.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Follower_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Follower_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Size.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Size_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Organization_Size_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Post.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Posts_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Posts_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="School.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="School_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="School_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skill.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills_Lookups.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills_Lookups_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills_Lookups_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skills_MemberGetAll_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill_Member.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill_Member_GetByID_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_GetConnectionPosts_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Upload_Media.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Upload_Media_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Upload_Media_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Volunteer_Experience.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Volunteer_Experience_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Volunteer_Experience_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Work_Experience.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Work_Experience_GetAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Work_Experience_GetByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LinkedinModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="LinkedinModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>LinkedinModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="LinkedinModel.edmx.diagram">
+      <DependentUpon>LinkedinModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -356,15 +383,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="LinkedinModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>LinkedinModel.edmx</DependentUpon>
+      <LastGenOutput>LinkedinModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="LinkedinModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>LinkedinModel.edmx</DependentUpon>
+      <LastGenOutput>LinkedinModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,7 @@ namespace ITI_Linkedin_Managers
         public bool Add(Skill e)
         {
             //to return entity if added or null if failed 
-            return link.Skills_Insert(e.Name, e.FK_Member) > 0;
+            return link.Skills_Insert(e.Name) > 0;
 
         }
 
@@ -45,7 +45,7 @@ namespace ITI_Linkedin_Managers
 
         public bool Update(Skill entity)
         {
-            link.Skills_Update(entity.ID, entity.Name, entity.FK_Member);
+            link.Skills_Update(entity.ID, entity.Name);
             return link.SaveChanges() > 0;
         }
     }

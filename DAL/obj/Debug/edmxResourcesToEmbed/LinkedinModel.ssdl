@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LinkedInModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="LinkedInNewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="aspnet_Applications">
     <Key>
       <PropertyRef Name="ApplicationId" />
@@ -144,7 +144,22 @@
     <Property Name="End_Year" Type="int" />
     <Property Name="End_Month" Type="int" />
     <Property Name="URL" Type="nvarchar" MaxLength="100" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
+  </EntityType>
+  <EntityType Name="Certification_Lookups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Org" Type="int" />
+    <Property Name="License_Number" Type="int" />
+    <Property Name="Start_Year" Type="int" />
+    <Property Name="Start_Month" Type="int" />
+    <Property Name="End_Year" Type="int" />
+    <Property Name="End_Month" Type="int" />
+    <Property Name="URL" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>
@@ -153,9 +168,16 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Content" Type="text" />
     <Property Name="FK_Post" Type="int" />
-    <Property Name="FK_MemberWrite" Type="uniqueidentifier" />
+    <Property Name="FK_MemberWrite" Type="int" />
   </EntityType>
   <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Country_Lookups">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -170,7 +192,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Number" Type="int" />
     <Property Name="FK_Org" Type="int" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Education">
     <Key>
@@ -185,7 +207,7 @@
     <Property Name="From_Year" Type="int" />
     <Property Name="To_Year" Type="int" />
     <Property Name="Description" Type="text" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Group">
     <Key>
@@ -195,7 +217,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Description" Type="text" />
     <Property Name="Data_Start" Type="date" />
-    <Property Name="FK_Create_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Create_Member" Type="int" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Industry">
@@ -212,7 +234,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Lang_Level" Type="nvarchar" MaxLength="50" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Like">
     <Key>
@@ -220,7 +242,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FK_Post" Type="int" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Links">
     <Key>
@@ -232,11 +254,19 @@
     <Property Name="Description" Type="text" />
     <Property Name="URL" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="LookupSkill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_LookupSkill" Type="int" Nullable="false" />
+    <Property Name="FK_Member" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fisrt_Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Middle_Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Last_Name" Type="nvarchar" MaxLength="50" />
@@ -249,18 +279,20 @@
     <Property Name="Date_Of_Birth" Type="date" />
     <Property Name="Date_Joined" Type="date" />
     <Property Name="Zip_Code" Type="int" />
+    <Property Name="FK_Country_Lookups" Type="int" />
     <Property Name="FK_Country" Type="int" />
     <Property Name="Profile_URL" Type="nvarchar" MaxLength="50" />
     <Property Name="FK_Industry" Type="int" />
     <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Membership_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Member_Connection">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
-    <Property Name="FK_Connect_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
+    <Property Name="FK_Connect_Member" Type="int" />
     <Property Name="Date_Start" Type="date" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>
@@ -269,7 +301,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
     <Property Name="FK_Group" Type="int" />
     <Property Name="Date_Join" Type="date" />
     <Property Name="IsDeleted" Type="bit" />
@@ -296,7 +328,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FK_Organization" Type="int" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Organization_Size">
     <Key>
@@ -312,7 +344,8 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Content" Type="text" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
+    <Property Name="Date" Type="date" />
   </EntityType>
   <EntityType Name="School">
     <Key>
@@ -327,13 +360,37 @@
     <Property Name="Date_Start" Type="date" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>
+  <EntityType Name="Skill_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Skill" Type="int" Nullable="false" />
+    <Property Name="FK_Member" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Skills">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Skills_Lookups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Upload_Media">
     <Key>
@@ -358,7 +415,7 @@
     <Property Name="End_Year" Type="int" />
     <Property Name="End_Month" Type="int" />
     <Property Name="Description" Type="text" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
   <EntityType Name="Work_Experience">
     <Key>
@@ -373,9 +430,9 @@
     <Property Name="To_Year" Type="int" />
     <Property Name="To_Month" Type="int" />
     <Property Name="Description" Type="text" />
-    <Property Name="FK_Member" Type="uniqueidentifier" />
+    <Property Name="FK_Member" Type="int" />
   </EntityType>
-  <Association Name="FK__aspnet_Me__Appli__7D0E9093">
+  <Association Name="FK__aspnet_Me__Appli__693CA210">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
     <ReferentialConstraint>
@@ -387,7 +444,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Me__UserI__7E02B4CC">
+  <Association Name="FK__aspnet_Me__UserI__6A30C649">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -399,7 +456,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pa__Appli__7EF6D905">
+  <Association Name="FK__aspnet_Pa__Appli__6B24EA82">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
     <ReferentialConstraint>
@@ -411,19 +468,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pe__PathI__00DF2177">
-    <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
-    <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aspnet_Paths">
-        <PropertyRef Name="PathId" />
-      </Principal>
-      <Dependent Role="aspnet_PersonalizationPerUser">
-        <PropertyRef Name="PathId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__aspnet_Pe__PathI__7FEAFD3E">
+  <Association Name="FK__aspnet_Pe__PathI__6C190EBB">
     <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
     <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -435,7 +480,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pe__UserI__01D345B0">
+  <Association Name="FK__aspnet_Pe__PathI__6D0D32F4">
+    <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__6E01572D">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
     <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
     <ReferentialConstraint>
@@ -447,7 +504,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Pr__UserI__02C769E9">
+  <Association Name="FK__aspnet_Pr__UserI__6EF57B66">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -459,7 +516,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Ro__Appli__03BB8E22">
+  <Association Name="FK__aspnet_Ro__Appli__6FE99F9F">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -471,7 +528,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Us__Appli__04AFB25B">
+  <Association Name="FK__aspnet_Us__Appli__70DDC3D8">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
     <ReferentialConstraint>
@@ -483,7 +540,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Us__RoleI__05A3D694">
+  <Association Name="FK__aspnet_Us__RoleI__71D1E811">
     <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
     <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -495,7 +552,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__aspnet_Us__UserI__0697FACD">
+  <Association Name="FK__aspnet_Us__UserI__72C60C4A">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -504,6 +561,30 @@
       </Principal>
       <Dependent Role="aspnet_UsersInRoles">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Certification_Lookups_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Certification_Lookups" Type="Self.Certification_Lookups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Certification_Lookups">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Certification_Lookups_Organization">
+    <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+    <End Role="Certification_Lookups" Type="Self.Certification_Lookups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Certification_Lookups">
+        <PropertyRef Name="FK_Org" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -675,6 +756,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LookupSkill_Member_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="LookupSkill_Member" Type="Self.LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LookupSkill_Member_Skills_Lookups">
+    <End Role="Skills_Lookups" Type="Self.Skills_Lookups" Multiplicity="1" />
+    <End Role="LookupSkill_Member" Type="Self.LookupSkill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills_Lookups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LookupSkill_Member">
+        <PropertyRef Name="FK_LookupSkill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Member_Connection_Member">
     <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
     <End Role="Member_Connection" Type="Self.Member_Connection" Multiplicity="*" />
@@ -708,6 +813,18 @@
       </Principal>
       <Dependent Role="Member">
         <PropertyRef Name="FK_Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Country_Lookups">
+    <End Role="Country_Lookups" Type="Self.Country_Lookups" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country_Lookups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="FK_Country_Lookups" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -807,15 +924,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Skills_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
-    <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
+  <Association Name="FK_Skill_Member_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Skill_Member" Type="Self.Skill_Member" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Skills">
+      <Dependent Role="Skill_Member">
         <PropertyRef Name="FK_Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Member_Skills">
+    <End Role="Skills" Type="Self.Skills" Multiplicity="1" />
+    <End Role="Skill_Member" Type="Self.Skill_Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Skill_Member">
+        <PropertyRef Name="FK_Skill" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1226,9 +1355,27 @@
     <Parameter Name="End_Year" Type="int" Mode="In" />
     <Parameter Name="End_Month" Type="int" Mode="In" />
     <Parameter Name="URL" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
-  <Function Name="Certification_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="Certification_Lookups_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_Lookups_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Certification_Lookups_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_Lookups_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Org" Type="int" Mode="In" />
+    <Parameter Name="License_Number" Type="int" Mode="In" />
+    <Parameter Name="Start_Year" Type="int" Mode="In" />
+    <Parameter Name="Start_Month" Type="int" Mode="In" />
+    <Parameter Name="End_Year" Type="int" Mode="In" />
+    <Parameter Name="End_Month" Type="int" Mode="In" />
+    <Parameter Name="URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_Lookups_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="FK_Org" Type="int" Mode="In" />
@@ -1238,7 +1385,7 @@
     <Parameter Name="End_Year" Type="int" Mode="In" />
     <Parameter Name="End_Month" Type="int" Mode="In" />
     <Parameter Name="URL" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="Comment_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1250,13 +1397,13 @@
   <Function Name="Comment_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Content" Type="text" Mode="In" />
     <Parameter Name="FK_Post" Type="int" Mode="In" />
-    <Parameter Name="FK_MemberWrite" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_MemberWrite" Type="int" Mode="In" />
   </Function>
   <Function Name="Comment_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Content" Type="text" Mode="In" />
     <Parameter Name="FK_Post" Type="int" Mode="In" />
-    <Parameter Name="FK_MemberWrite" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_MemberWrite" Type="int" Mode="In" />
   </Function>
   <Function Name="Country_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1266,6 +1413,20 @@
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="Country_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Country_Lookups_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Country_Lookups_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Country_Lookups_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Country_Lookups_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Country_Lookups_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="Country_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1278,19 +1439,6 @@
   <Function Name="Course_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Course_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="Course_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="Number" Type="int" Mode="In" />
-    <Parameter Name="FK_Org" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="Course_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="Number" Type="int" Mode="In" />
-    <Parameter Name="FK_Org" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
   </Function>
   <Function Name="Education_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1308,7 +1456,7 @@
     <Parameter Name="From_Year" Type="int" Mode="In" />
     <Parameter Name="To_Year" Type="int" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="Education_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1320,8 +1468,9 @@
     <Parameter Name="From_Year" Type="int" Mode="In" />
     <Parameter Name="To_Year" Type="int" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="Group_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1333,7 +1482,7 @@
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
     <Parameter Name="Data_Start" Type="date" Mode="In" />
-    <Parameter Name="FK_Create_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Create_Member" Type="int" Mode="In" />
     <Parameter Name="IsDeleted" Type="bit" Mode="In" />
   </Function>
   <Function Name="Group_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1341,7 +1490,7 @@
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
     <Parameter Name="Data_Start" Type="date" Mode="In" />
-    <Parameter Name="FK_Create_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Create_Member" Type="int" Mode="In" />
     <Parameter Name="IsDeleted" Type="bit" Mode="In" />
   </Function>
   <Function Name="Industry_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1365,17 +1514,6 @@
   <Function Name="Langauge_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
-  <Function Name="Langauge_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="Lang_Level" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="Langauge_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="Lang_Level" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
   <Function Name="Like_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1385,12 +1523,12 @@
   </Function>
   <Function Name="Like_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FK_Post" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="Like_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="FK_Post" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="Links_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1412,6 +1550,22 @@
     <Parameter Name="Description" Type="text" Mode="In" />
     <Parameter Name="URL" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="LookupSkill_Member_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Lookupskill_Member_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LookupSkill_Member_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LookupSkill_Member_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FK_LookupSkill" Type="int" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LookupSkill_Member_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="FK_LookupSkill" Type="int" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+  </Function>
   <Function Name="Member_Connection_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1419,25 +1573,12 @@
   <Function Name="Member_Connection_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
-  <Function Name="Member_Connection_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="FK_Connect_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="Date_Start" Type="date" Mode="In" />
-    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
-  </Function>
-  <Function Name="Member_Connection_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="FK_Connect_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="Date_Start" Type="date" Mode="In" />
-    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
-  </Function>
   <Function Name="Member_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="Member_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Member_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="Member_Group_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1446,21 +1587,7 @@
   <Function Name="Member_Group_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
-  <Function Name="Member_Group_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="FK_Group" Type="int" Mode="In" />
-    <Parameter Name="Date_Join" Type="date" Mode="In" />
-    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
-  </Function>
-  <Function Name="Member_Group_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="FK_Group" Type="int" Mode="In" />
-    <Parameter Name="Date_Join" Type="date" Mode="In" />
-    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
-  </Function>
   <Function Name="Member_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="Fisrt_Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Middle_Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Last_Name" Type="nvarchar" Mode="In" />
@@ -1474,12 +1601,14 @@
     <Parameter Name="Date_Joined" Type="date" Mode="In" />
     <Parameter Name="Zip_Code" Type="int" Mode="In" />
     <Parameter Name="FK_Country" Type="int" Mode="In" />
+    <Parameter Name="FK_Country_Lookups" Type="int" Mode="In" />
     <Parameter Name="Profile_URL" Type="nvarchar" Mode="In" />
     <Parameter Name="FK_Industry" Type="int" Mode="In" />
     <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="Membership_ID" Type="uniqueidentifier" Mode="In" />
   </Function>
   <Function Name="Member_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Fisrt_Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Middle_Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Last_Name" Type="nvarchar" Mode="In" />
@@ -1496,6 +1625,7 @@
     <Parameter Name="Profile_URL" Type="nvarchar" Mode="In" />
     <Parameter Name="FK_Industry" Type="int" Mode="In" />
     <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="Membership_ID" Type="uniqueidentifier" Mode="In" />
   </Function>
   <Function Name="Organization_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1506,15 +1636,6 @@
   <Function Name="Organization_Follower_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Organization_Follower_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="Organization_Follower_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FK_Organization" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="Organization_Follower_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="FK_Organization" Type="int" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
   </Function>
   <Function Name="Organization_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Organization_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1570,12 +1691,13 @@
   </Function>
   <Function Name="Posts_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Content" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
   </Function>
   <Function Name="Posts_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Content" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="School_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1603,6 +1725,18 @@
     <Parameter Name="Date_Start" Type="date" Mode="In" />
     <Parameter Name="IsDeleted" Type="bit" Mode="In" />
   </Function>
+  <Function Name="Skill_Member_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Skill_Member_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FK_Skill" Type="int" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Skill_Member_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="FK_Skill" Type="int" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
+  </Function>
   <Function Name="Skills_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1612,13 +1746,62 @@
   </Function>
   <Function Name="Skills_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
   </Function>
+  <Function Name="Skills_Lookups_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Skills_Lookups_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Skills_Lookups_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Skills_Lookups_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Skills_Lookups_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Skills_Member_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Skills_MemberGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Skills_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
   </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetConnectionPosts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Memberid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Upload_Media_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1646,29 +1829,6 @@
   <Function Name="Volunteer_Experience_GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
-  <Function Name="Volunteer_Experience_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FK_Org" Type="int" Mode="In" />
-    <Parameter Name="Role" Type="nvarchar" Mode="In" />
-    <Parameter Name="Cause" Type="nvarchar" Mode="In" />
-    <Parameter Name="Start_Year" Type="int" Mode="In" />
-    <Parameter Name="Start_Month" Type="int" Mode="In" />
-    <Parameter Name="End_Year" Type="int" Mode="In" />
-    <Parameter Name="End_Month" Type="int" Mode="In" />
-    <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="Volunteer_Experience_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="FK_Org" Type="int" Mode="In" />
-    <Parameter Name="Role" Type="nvarchar" Mode="In" />
-    <Parameter Name="Cause" Type="nvarchar" Mode="In" />
-    <Parameter Name="Start_Year" Type="int" Mode="In" />
-    <Parameter Name="Start_Month" Type="int" Mode="In" />
-    <Parameter Name="End_Year" Type="int" Mode="In" />
-    <Parameter Name="End_Month" Type="int" Mode="In" />
-    <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
-  </Function>
   <Function Name="Work_Experience_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
@@ -1685,7 +1845,7 @@
     <Parameter Name="To_Year" Type="int" Mode="In" />
     <Parameter Name="To_Month" Type="int" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
   <Function Name="Work_Experience_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -1697,9 +1857,9 @@
     <Parameter Name="To_Year" Type="int" Mode="In" />
     <Parameter Name="To_Month" Type="int" Mode="In" />
     <Parameter Name="Description" Type="text" Mode="In" />
-    <Parameter Name="FK_Member" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FK_Member" Type="int" Mode="In" />
   </Function>
-  <EntityContainer Name="LinkedInModelStoreContainer">
+  <EntityContainer Name="LinkedInNewModelStoreContainer">
     <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" Schema="dbo" store:Type="Tables" />
@@ -1712,8 +1872,10 @@
     <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Certification" EntityType="Self.Certification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certification_Lookups" EntityType="Self.Certification_Lookups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country_Lookups" EntityType="Self.Country_Lookups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
@@ -1721,6 +1883,7 @@
     <EntitySet Name="Langauge" EntityType="Self.Langauge" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LookupSkill_Member" EntityType="Self.LookupSkill_Member" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Member_Connection" EntityType="Self.Member_Connection" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Member_Group" EntityType="Self.Member_Group" Schema="dbo" store:Type="Tables" />
@@ -1729,53 +1892,64 @@
     <EntitySet Name="Organization_Size" EntityType="Self.Organization_Size" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill_Member" EntityType="Self.Skill_Member" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skills_Lookups" EntityType="Self.Skills_Lookups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Upload_Media" EntityType="Self.Upload_Media" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Volunteer_Experience" EntityType="Self.Volunteer_Experience" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Work_Experience" EntityType="Self.Work_Experience" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__aspnet_Me__Appli__7D0E9093" Association="Self.FK__aspnet_Me__Appli__7D0E9093">
+    <AssociationSet Name="FK__aspnet_Me__Appli__693CA210" Association="Self.FK__aspnet_Me__Appli__693CA210">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Me__UserI__7E02B4CC" Association="Self.FK__aspnet_Me__UserI__7E02B4CC">
+    <AssociationSet Name="FK__aspnet_Me__UserI__6A30C649" Association="Self.FK__aspnet_Me__UserI__6A30C649">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pa__Appli__7EF6D905" Association="Self.FK__aspnet_Pa__Appli__7EF6D905">
+    <AssociationSet Name="FK__aspnet_Pa__Appli__6B24EA82" Association="Self.FK__aspnet_Pa__Appli__6B24EA82">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__00DF2177" Association="Self.FK__aspnet_Pe__PathI__00DF2177">
-      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-    </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__7FEAFD3E" Association="Self.FK__aspnet_Pe__PathI__7FEAFD3E">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__6C190EBB" Association="Self.FK__aspnet_Pe__PathI__6C190EBB">
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
       <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__UserI__01D345B0" Association="Self.FK__aspnet_Pe__UserI__01D345B0">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__6D0D32F4" Association="Self.FK__aspnet_Pe__PathI__6D0D32F4">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__6E01572D" Association="Self.FK__aspnet_Pe__UserI__6E01572D">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pr__UserI__02C769E9" Association="Self.FK__aspnet_Pr__UserI__02C769E9">
+    <AssociationSet Name="FK__aspnet_Pr__UserI__6EF57B66" Association="Self.FK__aspnet_Pr__UserI__6EF57B66">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Ro__Appli__03BB8E22" Association="Self.FK__aspnet_Ro__Appli__03BB8E22">
+    <AssociationSet Name="FK__aspnet_Ro__Appli__6FE99F9F" Association="Self.FK__aspnet_Ro__Appli__6FE99F9F">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__Appli__04AFB25B" Association="Self.FK__aspnet_Us__Appli__04AFB25B">
+    <AssociationSet Name="FK__aspnet_Us__Appli__70DDC3D8" Association="Self.FK__aspnet_Us__Appli__70DDC3D8">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__RoleI__05A3D694" Association="Self.FK__aspnet_Us__RoleI__05A3D694">
+    <AssociationSet Name="FK__aspnet_Us__RoleI__71D1E811" Association="Self.FK__aspnet_Us__RoleI__71D1E811">
       <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__UserI__0697FACD" Association="Self.FK__aspnet_Us__UserI__0697FACD">
+    <AssociationSet Name="FK__aspnet_Us__UserI__72C60C4A" Association="Self.FK__aspnet_Us__UserI__72C60C4A">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Certification_Lookups_Member" Association="Self.FK_Certification_Lookups_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Certification_Lookups" EntitySet="Certification_Lookups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Certification_Lookups_Organization" Association="Self.FK_Certification_Lookups_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="Certification_Lookups" EntitySet="Certification_Lookups" />
     </AssociationSet>
     <AssociationSet Name="FK_Certification_Member" Association="Self.FK_Certification_Member">
       <End Role="Member" EntitySet="Member" />
@@ -1833,6 +2007,14 @@
       <End Role="Work_Experience" EntitySet="Work_Experience" />
       <End Role="Links" EntitySet="Links" />
     </AssociationSet>
+    <AssociationSet Name="FK_LookupSkill_Member_Member" Association="Self.FK_LookupSkill_Member_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LookupSkill_Member_Skills_Lookups" Association="Self.FK_LookupSkill_Member_Skills_Lookups">
+      <End Role="Skills_Lookups" EntitySet="Skills_Lookups" />
+      <End Role="LookupSkill_Member" EntitySet="LookupSkill_Member" />
+    </AssociationSet>
     <AssociationSet Name="FK_Member_Connection_Member" Association="Self.FK_Member_Connection_Member">
       <End Role="Member" EntitySet="Member" />
       <End Role="Member_Connection" EntitySet="Member_Connection" />
@@ -1843,6 +2025,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Member_Country" Association="Self.FK_Member_Country">
       <End Role="Country" EntitySet="Country" />
+      <End Role="Member" EntitySet="Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Country_Lookups" Association="Self.FK_Member_Country_Lookups">
+      <End Role="Country_Lookups" EntitySet="Country_Lookups" />
       <End Role="Member" EntitySet="Member" />
     </AssociationSet>
     <AssociationSet Name="FK_Member_Group_Group" Association="Self.FK_Member_Group_Group">
@@ -1877,9 +2063,13 @@
       <End Role="Member" EntitySet="Member" />
       <End Role="Posts" EntitySet="Posts" />
     </AssociationSet>
-    <AssociationSet Name="FK_Skills_Member" Association="Self.FK_Skills_Member">
+    <AssociationSet Name="FK_Skill_Member_Member" Association="Self.FK_Skill_Member_Member">
       <End Role="Member" EntitySet="Member" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Member_Skills" Association="Self.FK_Skill_Member_Skills">
       <End Role="Skills" EntitySet="Skills" />
+      <End Role="Skill_Member" EntitySet="Skill_Member" />
     </AssociationSet>
     <AssociationSet Name="FK_Upload_Media_Education" Association="Self.FK_Upload_Media_Education">
       <End Role="Education" EntitySet="Education" />

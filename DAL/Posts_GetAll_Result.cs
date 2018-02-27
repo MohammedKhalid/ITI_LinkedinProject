@@ -16,5 +16,6 @@ namespace DAL
         public int ID { get; set; }
         public string Content { get; set; }
         public Nullable<int> FK_Member { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     }
 }

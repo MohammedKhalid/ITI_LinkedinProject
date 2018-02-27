@@ -15,6 +15,5 @@ namespace DAL
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> FK_Member { get; set; }
     }
 }

@@ -57,7 +57,6 @@ namespace ITI_Linkedin_Managers
         public IQueryable GetByUserId(int userid)
         {
             var edu = from ed in link.Educations
-
                       where ed.FK_Member == userid
                       select new
                       {
