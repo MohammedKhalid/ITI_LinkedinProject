@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI_Linkedin_Presenation-Web", "ITI_Linkedin_Presenation\ITI_Linkedin_Presenation-Web.csproj", "{8870D378-AB6A-4BE2-B025-B64B14617CB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A4E335CC-FF37-4498-AD17-C54634B7BDCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI_Linkedin_Managers", "ITI_Linkedin_Managers\ITI_Linkedin_Managers.csproj", "{C1E16ECE-7EC6-434D-9831-D25DEDEFFA8C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ITI_Linkedin_Database", "ITI_Linkedin_Database\ITI_Linkedin_Database.sqlproj", "{10FF3B95-C451-4261-9039-61035D6ADC6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,12 @@ Global
 		{C1E16ECE-7EC6-434D-9831-D25DEDEFFA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1E16ECE-7EC6-434D-9831-D25DEDEFFA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1E16ECE-7EC6-434D-9831-D25DEDEFFA8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FF3B95-C451-4261-9039-61035D6ADC6D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

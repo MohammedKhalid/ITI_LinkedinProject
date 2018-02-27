@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ITI_Linkedin_Managers
 {
-   public class SkillsManager
+    public class SkillsManager
     {
         LinkedInNewEntities link;
-       public SkillsManager (LinkedInNewEntities ctx)
-       {
+        public SkillsManager(LinkedInNewEntities ctx)
+        {
             link = ctx;
-       }
+        }
         public SkillsManager()
         {
             link = new LinkedInNewEntities();
@@ -47,6 +47,31 @@ namespace ITI_Linkedin_Managers
         {
             link.Skills_Update(entity.ID, entity.Name);
             return link.SaveChanges() > 0;
+        }
+
+        public List<IQueryable> GetByUserId(int userid)
+        {
+            List<IQueryable> list = new List<IQueryable>();
+            var skl = from ms in link.Skill_Member
+                      join sk in link.Skills on ms.FK_Skill equals sk.ID
+                      where ms.FK_Member == userid
+                      select new
+                      {
+                          Name = sk.Name
+                      };
+
+            var lookskl = from mss in link.Skill_Member
+                          join skk in link.Skills_Lookups on mss.FK_Skill equals skk.ID
+                          where mss.FK_Member == userid
+                          select new
+                          {
+                              Name = skk.Name
+                          };
+
+            list.Add(skl);
+            list.Add(lookskl);
+            return list;
+
         }
     }
 }
