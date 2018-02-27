@@ -81,6 +81,7 @@
     <Content Include="Controls\ctrl_PasswordRecovery.ascx" />
     <Content Include="Controls\ctrl_ResetPassword.ascx" />
     <Content Include="Controls\ctrl_viewEducation.ascx" />
+    <Content Include="Controls\ctrl_viewSkill.ascx" />
     <Content Include="Css\myStyle.css" />
     <Content Include="Controls\ctrl_Login.ascx" />
     <Content Include="Controls\ctrl_Regsister.ascx" />
@@ -95,6 +96,7 @@
     <Content Include="Forms\frmUserProfile.aspx" />
     <Content Include="Forms\frmHome.aspx" />
     <Content Include="Forms\frmRegsister.aspx" />
+    <Content Include="Forms\test.aspx" />
     <Content Include="header.html" />
     <Content Include="Images\10405665_870538716317432_5299309338596982137_n.jpg" />
     <Content Include="Images\Backgroundlog.png" />
@@ -235,6 +237,13 @@
     <Compile Include="Controls\ctrl_viewEducation.ascx.designer.cs">
       <DependentUpon>ctrl_viewEducation.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ctrl_viewSkill.ascx.cs">
+      <DependentUpon>ctrl_viewSkill.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrl_viewSkill.ascx.designer.cs">
+      <DependentUpon>ctrl_viewSkill.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAddEditEducation.aspx.cs">
       <DependentUpon>frmAddEditEducation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +285,13 @@
     </Compile>
     <Compile Include="Forms\frmRegsister.aspx.designer.cs">
       <DependentUpon>frmRegsister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,7 +345,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56380</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56380/</IISUrl>
+          <IISUrl>http://localhost:5001/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
